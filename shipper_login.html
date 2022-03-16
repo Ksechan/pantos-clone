@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>화주 로그인</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- all.css -->
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+  </head>
+  <body>
+    <div id="modal_background"></div>
+    <section class="login_container">
+      <div class="login_block">
+        <form action="">
+          <div class="login_logo_container">
+            <img src="./images/pantos_logo.png" />
+            <span class="noto-medium">화주 전자인수증 관리시스템</span>
+          </div>
+
+          <div>
+            <p class="login_title noto-medium font-color-black font-size-14">아이디</p>
+            <input placeholder="아이디를 입력해주세요." class="login_input login_input_id" />
+          </div>
+
+          <div>
+            <p class="login_title noto-medium font-color-black font-size-14">패스워드</p>
+            <input placeholder="패스워드를 입력해주세요." class="login_input login_input_pwd no_margin_bottom" type="password" />
+          </div>
+          <div class="login_btn_container">
+            <div class="login_dialog1 noto-demilight font-color-red font-size-14">아이디 및 패스워드를 입력해주세요.</div>
+            <div class="login_dialog2 noto-demilight font-color-red font-size-14">입력하신 아이디 및 패스워드가 일치하지 않습니다.</div>
+            <button class="login_btn">로그인</button>
+          </div>
+        </form>
+
+        <div class="login_sub_title">
+          <ul>
+            <li>
+              <span class="noto-regular font-color-grey font-size-14">Contact : pantos@laxpantos.com</span>
+            </li>
+            <div>
+              <li>
+                <span class="find_id noto-regular font-color-grey font-size-14"> 아이디 찾기 </span>
+              </li>
+              <li>
+                <span class="find_pwd noto-regular font-color-grey font-size-14"> 패스워드 찾기 </span>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <img src="./images/login_image.png" class="login_page_image" />
+    </section>
+
+    <!-- 최초접속시 이용약관 모달 -->
+
+    <div class="modal_agreement">
+      <img class="modal_agreement_logo" src="./images/pantos_logo.png" />
+      <div>
+        <div class="modal_agreement_check_box1">
+          <input type="checkbox" id="checkbox1" />
+          <label for="checkbox1"></label>
+
+          <span class="modal_agreement_checkbox_text noto-medium">이용약관 동의 <span class="font-color-deep-black font-size-14"> (필수)</span></span>
+        </div>
+        <div class="modal_agreement_content">
+          <p class="font-color-black noto-regular font-size-14">
+            <span class="font-color-deep-black noto-medium font-size-14">제 1 조 (목적)</span><br /><br />
+            이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아 청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서
+            긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도 긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다. 바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며,
+            그것은 소담스러운 피고 사막이다. 설산에서 싹 이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아 청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라.
+            하여도 발휘하기 인류의 싹이 든 피다. 설산에서 긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도 긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다. 바이며,
+            사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹 이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아 청춘에서만
+            굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서 긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도 긴지라 위하여서.
+            두손을 우리 피는 크고 바로 힘있다. 바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="modal_agreement_check_box2">
+          <input type="checkbox" id="checkbox2" />
+          <label for="checkbox2"></label>
+          <span class="modal_agreement_checkbox_text noto-medium">개인정보 수집 및 이용 동의<span class="font-color-red font-size-12"> (필수)</span></span>
+        </div>
+        <div class="modal_agreement_content">
+          <p class="font-color-black noto-regular font-size-14">
+            <span class="font-color-deep-black noto-medium font-size-14">제 1 조 (목적)</span><br /><br />
+            이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아 청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서
+            긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도 긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다. 바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며,
+            그것은 소담스러운 피고 사막이다. 설산에서 싹 이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아 청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라.
+            하여도 발휘하기 인류의 싹이 든 피다. 설산에서 긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도 긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다. 바이며,
+            사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹 이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아 청춘에서만
+            굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서 긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도 긴지라 위하여서.
+            두손을 우리 피는 크고 바로 힘있다. 바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹
+          </p>
+        </div>
+      </div>
+
+      <button class="modal_agreement_btn disabled_btn_288 noto-regular font-size-16" disabled>확인</button>
+    </div>
+
+    <div class="modal_agreement_service">
+      <img class="modal_agreement_logo" src="./images/pantos_logo.png" />
+      <div class="modal_agreement_service_block">
+        <span class="font-color-deep-black font-size-14 noto-medium">서비스 이용약관</span>
+        <div class="modal_agreement_service_content">
+          <p class="font-color-black noto-regular font-size-14">
+            <span class="font-color-deep-black noto-medium font-size-14">제 1 조 (목적)</span><br /><br />
+            이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아 청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서
+            긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도 긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다.<br /><br />
+            바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹 이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아
+            청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서 긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도
+            긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다.<br /><br />
+            바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹 이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아
+            청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서 긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도
+            긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다.<br /><br />
+            바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹 이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아
+            청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서 긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도
+            긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다.<br /><br />
+            바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹 이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아
+            청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서 긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도
+            긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다.<br /><br />
+            바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹 이상 눈이 때까지 우리의 없으면 봄바람을 일월과 이상을 되려니와, 말이다. 동력은 물방아
+            청춘에서만 굳세게 할지니, 무엇을 청춘의 끓는 있는 보라. 하여도 발휘하기 인류의 싹이 든 피다. 설산에서 긴지라 모래뿐일 없는 보는 있다. 우리 싶이 앞이 상생하며, 작고 것이 이 오아이스도
+            긴지라 위하여서. 두손을 우리 피는 크고 바로 힘있다.<br /><br />
+            바이며, 사라지지 우는 그들은 피가 청춘의 것이다. 주며, 그것은 소담스러운 피고 사막이다. 설산에서 싹
+          </p>
+        </div>
+      </div>
+
+      <button class="modal_agreement_service_btn abled_btn_288 noto-regular font-size-16">확인</button>
+    </div>
+
+    <footer class="noto-regular font-color-grey font-size-14">
+      <div class="footer_left">
+          <div class="footer_name noto-bold font-size-18">(주)LX판토스</div>
+          <div>
+              <ul>
+                  <li>
+                      <span>사업자등록번호 116-81-31734</span>
+                  </li>
+                      <span>대표자 최원혁</span>
+              </ul>
+          </div>
+          <div class="footer_copyright">Copyright (c) 2016 LX PANTOS Co., Ltd. All rights reserved.</div>
+      </div>
+      <div class="footer_right">
+          <div class="footer_name"></div>
+          <div>
+              <ul>
+                  <li>
+                      <span>서비스 이용약관<span>
+                  </li>
+                      <span>개인정보처리방침</span>
+              </ul>
+          </div>
+          <div>
+              <ul>
+                  <li>
+                      <span>서울시 종로구 새문안로 58<span>
+                  </li>
+                  <li>
+                      <span>대표전화 02-3771-2114</span>
+                  </li>
+                  <li>
+                      <span>Fax. 02-3771-2798<span>
+                  </li>
+                      <span>tpod.helpdesk@lxpantos.com</span>
+              </ul>
+          </div>
+      </div>
+  </footer>
+  </body>
+  <script src="./js/common/common.js"></script>
+  <script src="./js/common/commonServerCall.js"></script>
+</html>

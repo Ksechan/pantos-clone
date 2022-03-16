@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>차량관제 모달</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+    <script type="text/javascript" src="./node_modules/chart.js/dist/chart.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=drc8ljb2ce"></script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/modal_map.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+  </head>
+  <body>
+    <!-- 차량관제 모달은 modal_map.js 참고 부탁드립니다 -->
+    <form class="modal_vehicle_control">
+      <div class="modal_header"><span>Order No. 04</span> <img src="./images/icons/close_icon.svg" alt="close" class="modal_order_detail_header_close" /></div>
+      <div id="modal_map" style="width: 912px; height: 594px"></div>
+
+      <div class="modal_vehicle_control_content noto-medium font-size-14 font-color-deep-black">
+        <ul>
+          <li>
+            <div>
+              <div>운송상태</div>
+              <div>입차전</div>
+            </div>
+
+            <div>
+              <div>상차지 명</div>
+              <div>-</div>
+            </div>
+
+            <div>
+              <div>상차지 위치</div>
+              <div>-</div>
+            </div>
+
+            <div>
+              <div>하차지 명</div>
+              <div>-</div>
+            </div>
+
+            <div>
+              <div>하차지 위치</div>
+              <div>-</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div>배차번호</div>
+              <div>-</div>
+            </div>
+
+            <div>
+              <div>현재 위치</div>
+              <div>-</div>
+            </div>
+
+            <div>
+              <div>남은거리</div>
+              <div>-</div>
+            </div>
+
+            <div>
+              <div>도착예상시간</div>
+              <div>-</div>
+            </div>
+
+            <div>
+              <div></div>
+              <div></div>
+            </div>
+          </li>
+        </ul>
+        <div class="modal_vehicle_control_btn_box">
+          <button class="refresh_btn"><img src="./images/icons/refresh_icon.svg" />새로고침</button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>어드민 로그인</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+  </head>
+  <body>
+    <div id="modal_background"></div>
+    <div class="admin_login_background">
+      <section class="admin_login_container">
+        <div class="admin_login_sub_container">
+          <img class="pantos_logo" src="./images/admin_login_logo.png" />
+          <div class="admin_login_text poppins-semibold font-color-black font-size-20">Log-In</div>
+          <form action="" class="admin_login">
+            <div class="admin_login_input_container">
+              <input class="admin_login_id_input noto-regular font-size-14 font-color-black" type="text" maxlength="20" placeholder="아이디를 입력해주세요." />
+            </div>
+            <div class="admin_login_input_container">
+              <input class="admin_login_pwd_input noto-regular font-size-14 font-color-black" type="password" maxlength="20" placeholder="패스워드를 입력해주세요." />
+            </div>
+            <div class="admin_login_sub_menu noto-regular font-color-grey font-size-14">패스워드 찾기</div>
+            <div class="admin_login_fail noto-demilight font-color-red font-size-14"></div>
+            <input class="noto-medium font-size-16" type="submit" value="로그인" />
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+  <script src="./js/common/common.js"></script>
+  <script src="./js/common/commonServerCall.js"></script>
+</html>

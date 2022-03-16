@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상위계정 등록 모달</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+  </head>
+  <body>
+    <form action="" class="modal_upper_account_registration">
+      <div class="modal_header"><span>상위계정 등록</span><img src="./images/icons/close_icon.svg" alt="close" class="modal_upper_account_registration_close" /></div>
+
+      <div class="tabs_area">
+        <ul class="tabs noto-medium font-size-14">
+          <li class="on upper_account_tab1"><a href="#!">법인 정보</a></li>
+          <li class="upper_account_tab2"><a href="#!">계정 정보</a></li>
+          <li class="upper_account_tab3"><a href="#!">가입 정보</a></li>
+          <li class="upper_account_tab4"><a href="#!">정산 정보</a></li>
+          <li class="upper_account_tab5"><a href="#!">API 정보</a></li>
+          <li class="upper_account_tab6"><a href="#!">할인 정보</a></li>
+        </ul>
+        <div class="tab_box on upper_account_tab1">
+          <div class="modal_upper_account_registration_corporation_tab_content">
+            <ul>
+              <li>
+                <div>
+                  <span>법인 명<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" class="corporation_info_input" />
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>사업자번호<span class="font-color-red">*</span></span>
+                </div>
+                <div class="number_input button_box">
+                  <input type="text" maxlength="3" class="company_registration_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="2" class="company_registration_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="6" class="company_registration_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <span id="corporate_none_duplicate" class="none_duplicate noto-demilight">중복 정보 없음</span>
+                  <span id="corporate_duplicate" class="duplicate noto-demilight">중복 정보 있음</span>
+                  <button class="company_registration_number_btn disabled_btn_120" disabled>조회</button>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>대표연락처<span class="font-color-red">*</span></span>
+                </div>
+                <div class="number_input">
+                  <input type="text" maxlength="3" class="boss_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="4" class="boss_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="4" class="boss_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>FAX</span>
+                </div>
+                <div class="number_input">
+                  <input type="text" maxlength="3" class="FAX_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="4" class="FAX_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="4" class="FAX_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>대표 이메일<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" class="corporation_tab_email_input" />
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>대표자 명<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" class="corporation_tab_boss_name_input" />
+                </div>
+              </li>
+
+              <li>
+                <div></div>
+                <div></div>
+              </li>
+            </ul>
+          </div>
+          <div class="next_btn_container"><button class="upper_account_corporation_tab_btn disabled_btn_120" disabled>다음 단계</button></div>
+        </div>
+
+        <!-- 계정정보 탭 -->
+
+        <div class="tab_box upper_account_tab2">
+          <div class="modal_upper_account_registration_account_tab_content">
+            <ul>
+              <li>
+                <div>
+                  <span>사업장 명<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" class="account_company_name_input" />
+                  <span id="company_none_duplicate" class="none_duplicate company_none_duplicate noto-demilight">중복 정보 없음</span>
+                  <span id="company_duplicate" class="duplicate company_duplicate noto-demilight">중복 정보 있음</span>
+                  <button class="disabled_btn_120 company_name_btn" disabled>조회</button>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>업체 명</span>
+                </div>
+                <div>
+                  <input type="text" />
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>사업장 위치<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" disabled />
+                  <button class="abled_btn_120">주소 검색</button>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>지오펜스 사용여부</span>
+                </div>
+                <div>
+                  <input type="radio" id="modal_upper_account_registration_account_tab_content_geofence" name="geofence_choice" checked />
+                  <label for="modal_upper_account_registration_account_tab_content_geofence"><span></span>미사용</label>
+
+                  <input type="radio" id="modal_upper_account_registration_account_tab_content_no_geofence" name="geofence_choice" />
+                  <label for="modal_upper_account_registration_account_tab_content_no_geofence"><span></span>사용</label>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>사업장 연락처<span class="font-color-red">*</span></span>
+                </div>
+                <div class="number_input">
+                  <input type="text" maxlength="3" class="company_number1 input_width_90" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="4" class="company_number2 input_width_90" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="4" class="company_number3 input_width_90" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>사업장 FAX</span>
+                </div>
+                <div class="number_input">
+                  <input type="text" maxlength="3" class="company_fax_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="4" class="company_fax_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div>-</div>
+                  <input type="text" maxlength="4" class="company_fax_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>사업장 이메일<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" class="account_company_email" />
+                </div>
+              </li>
+
+              <li class="person_in_charge_container">
+                <div>
+                  <span>담당자 정보<span class="font-color-red">*</span></span>
+                </div>
+                <div class="input_box_container">
+                  <div id="upper_account_input_box" class="input_box account_input_box">
+                    <ul>
+                      <li>
+                        <input type="radio" name="modal_upper_account_registration_corporation_radio" id="modal_upper_account_registration_corporation_radio" checked />
+                        <label for="modal_upper_account_registration_corporation_radio">
+                          <span></span>
+                          대표 담당자</label
+                        >
+                      </li>
+                      <li>
+                        <p>담당자 명</p>
+                        <input type="text" class="account_person_in_charge_name" />
+                      </li>
+                      <li>
+                        <p>담당자 이메일</p>
+                        <input type="email" class="account_person_in_charge_email"/>
+                      </li>
+                      <li>
+                        <p>담당자 연락처</p>
+                        <input type="text" maxlength="3" class="account_person_in_charge_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <div class="input_divide">-</div>
+                        <input type="text" maxlength="4" class="account_person_in_charge_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <div class="input_divide">-</div>
+                        <input type="text" maxlength="4" class="account_person_in_charge_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                        <button class="account_delete_person_in_charge_btn disabled_btn_120_border_grey" disabled>삭제</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span></span>
+                </div>
+                <div><button class="account_plus_person_in_charge_btn disabled_btn_120" disabled>담당자 추가</button></div>
+              </li>
+
+              <li>
+                <div>
+                  <span>사용자 ID<span class="font-color-red">*</span></span>
+                </div>
+                <div class="check_ID">
+                  <input type="text" class="account_customer_ID" />
+                  <span class="abled_id font-color-blue">사용 가능 계정</span>
+                  <span class="disabled_id font-color-red">사용 불가 계정</span>
+                  <button class="abled_id_check_btn abled_btn_120">조회</button>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>사용자 PW<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="password" class="account_customer_PW" />
+                  <span class="modal_change_pw_dialog noto-regular font-color-blue font-size-14">입력 조건 일치</span>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>PW 재확인<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="password" class="account_customer_PW_check" />
+                  <span class="modal_change_pw_check_dialog noto-regular font-color-blue font-size-14">입력 PW 일치</span>
+                  <span class="modal_change_pw_error_dialog noto-regular font-color-blue font-size-14">입력 PW 불일치</span>
+                </div>
+              </li>
+
+              <li class="logo_image">
+                <div>
+                  <span>로고</span>
+                </div>
+                <div class="image_container">
+                  <label class="img_upload noto-regular font-size-14" for="logo_img_upload">파일 업로드</label>
+                  <input type="file" id="logo_img_upload" accept="image/*" onchange="" />
+                  <div class="logo_image_block"></div>
+                </div>
+              </li>
+
+              <li class="seal_image">
+                <div>
+                  <span>인장</span>
+                </div>
+                <div class="image_container">
+                  <label class="img_upload noto-regular font-size-14" for="seal_img_upload">파일 업로드</label>
+                  <input type="file" id="seal_img_upload" accept="image/*" onchange="" />
+                  <div class="seal_image_block"></div>
+              </li>
+            </ul>
+          </div>
+          <div class="next_btn_container"><button class="upper_account_account_tab_btn disabled_btn_120" disabled>다음 단계</button></div>
+        </div>
+
+        <div class="tab_box upper_account_tab3">
+          <div class="modal_upper_account_registration_registration_info_tab_content">
+            <ul>
+              <li>
+                <div>
+                  <span>서비스 계약서<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <label class="noto-regular font-size-14" for="service_contract">파일 업로드</label>
+                  <input type="file" id="service_contract" />
+                  <span></span>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>사업자 등록증<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <label class="noto-regular font-size-14" for="business_license">파일 업로드</label>
+                  <input type="file" id="business_license" />
+                  <span></span>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>약관동의일<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="date" class="modal_upper_account_registration_registration_info_tab_date" />
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="next_btn_container"><button class="upper_account_registration_tab_btn disabled_btn_120" disabled>다음 단계</button></div>
+        </div>
+
+        <div class="tab_box upper_account_tab4">
+          <div class="modal_upper_account_registration_calculate_tab_content">
+            <ul>
+              <li class="calculate_input_radio_box">
+                <div>
+                  <span>알림톡 사용</span>
+                </div>
+                <div class="calculate_input_radio_box">
+                  <input type="radio" id="un_used_calculate_alarm_talk" name="alarm_talk" value="un_used" checked />
+                  <label for="un_used_calculate_alarm_talk"><span></span>미사용</label>
+
+                  <input type="radio" id="used_calculate_alarm_talk" name="alarm_talk" value="used" />
+                  <label for="used_calculate_alarm_talk"><span></span>사용</label>
+                </div>
+              </li>
+
+              <li class="calculate_input_radio_box">
+                <div>
+                  <span>SMS 사용</span>
+                </div>
+                <div class="calculate_input_radio_box">
+                  <input type="radio" id="un_used_calculate_SMS" name="calculate_SMS" value="un_used" checked />
+                  <label for="un_used_calculate_SMS"><span></span>미사용</label>
+
+                  <input type="radio" id="used_calculate_SMS" name="calculate_SMS" value="used" />
+                  <label for="used_calculate_SMS"><span></span>사용</label>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>정산 시작일</span>
+                </div>
+                <div>
+                  <input type="date" class="modal_upper_account_registration_calculate_tab_date" />
+                </div>
+              </li>
+
+              <li class="calculate_input_radio_box">
+                <div>
+                  <span>정산 발행구분</span>
+                </div>
+                <div>
+                  <input type="radio" id="calculate_corporate" name="calculate_corporate_business" value="calculate_corporate" checked />
+                  <label for="calculate_corporate"><span></span>법인별</label>
+
+                  <input type="radio" id="calculate_business" name="calculate_corporate_business" value="calculate_business" />
+                  <label for="calculate_business"><span></span>사업장별</label>
+                </div>
+              </li>
+
+              <li class="person_in_charge_container">
+                <div>
+                  <span>담당자 정보<span class="font-color-red">*</span></span>
+                </div>
+                <div class="calculate_input_box_container">
+                  <div id="upper_calculate_input_box" class="input_box calculate_input_box">
+                    <ul>
+                      <li>
+                        <input type="radio" name="modal_upper_account_registration_calculate_radio" id="modal_upper_account_registration_calculate_radio" checked />
+                        <label for="modal_upper_account_registration_calculate_radio">
+                          <span></span>
+                          대표 담당자</label
+                        >
+                      </li>
+                      <li>
+                        <p>담당자 명</p>
+                        <input type="text" class="calculate_person_in_charge_name" />
+                      </li>
+                      <li>
+                        <p>담당자 이메일</p>
+                        <input type="email" class="calculate_person_in_charge_email" />
+                      </li>
+                      <li>
+                        <p>담당자 연락처</p>
+                        <input type="text" maxlength="3" class="calculate_person_in_charge_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <div class="input_divide">-</div>
+                        <input type="text" maxlength="4" class="calculate_person_in_charge_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <div class="input_divide">-</div>
+                        <input type="text" maxlength="4" class="calculate_person_in_charge_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                        <button class="calculate_plus_person_in_charge_delete_btn disabled_btn_120_border_grey" disabled>삭제</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span></span>
+                </div>
+                <div><button class="calculate_plus_person_in_charge_btn disabled_btn_120" disabled>담당자 추가</button></div>
+              </li>
+
+              <li>
+                <div>
+                  <span>MDM 코드<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" class="MDM_code_input" />
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="next_btn_container"><button class="upper_account_calculate_tab_btn disabled_btn_120" disabled>다음 단계</button></div>
+        </div>
+
+        <div class="tab_box upper_account_tab5">
+          <div class="modal_upper_account_registration_API_tab_content">
+            <ul>
+              <li class="input_radio_box">
+                <div>
+                  <span>개발용 API 사용</span>
+                </div>
+                <div>
+                  <input type="radio" id="un_used_develop_API" name="develop_API" value="un_used" checked />
+                  <label for="un_used_develop_API"><span></span>미사용</label>
+
+                  <input type="radio" id="used_develop_API" name="develop_API" value="used" />
+                  <label for="used_develop_API"><span></span>사용</label>
+                </div>
+              </li>
+
+              <li class="develop_API_input_box">
+                <div>
+                  <span>API 토큰<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" />
+                  <button class="abled_btn_120">API 발급</button>
+                </div>
+              </li>
+
+              <li class="input_radio_box">
+                <div>
+                  <span>실운영 API 사용</span>
+                </div>
+                <div class="input_radio_box">
+                  <input type="radio" id="un_used_operation_API" name="operation_API" value="un_used" checked />
+                  <label for="un_used_operation_API"><span></span>미사용</label>
+
+                  <input type="radio" id="used_operation_API" name="operation_API" value="used" />
+                  <label for="used_operation_API"><span></span>사용</label>
+                </div>
+              </li>
+
+              <li class="operation_API_input_box">
+                <div>
+                  <span>API 토큰<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" />
+                  <button class="abled_btn_120">API 발급</button>
+                </div>
+              </li>
+
+              <li class="operation_API_input_box">
+                <div>
+                  <span>SECRET KEY<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" />
+                  <button class="abled_btn_120">KEY 발급</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="next_btn_container"><button class="upper_account_API_tab_btn abled_btn_120">다음 단계</button></div>
+        </div>
+        <div class="tab_box upper_account_tab6">
+          <div class="modal_upper_account_registration_discount_tab_content">
+            <ul>
+              <li class="input_radio_box">
+                <div>
+                  <span>할인사용여부</span>
+                </div>
+                <div>
+                  <input type="radio" id="un_used_dicount" name="used_unused_discount" value="un_used" checked />
+                  <label for="un_used_dicount"><span></span>미사용</label>
+
+                  <input type="radio" id="used_discount" name="used_unused_discount" value="used" />
+                  <label for="used_discount"><span></span>사용</label>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>적용년월</span>
+                </div>
+                <div>
+                  <select name="" id="">
+                    <option value="">2022</option>
+                    <option value="">2023</option>
+                    <option value="">2024</option>
+                  </select>
+                  <p>년</p>
+
+                  <select name="" id="">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                    <option value="">6</option>
+                    <option value="">7</option>
+                    <option value="">8</option>
+                    <option value="">9</option>
+                    <option value="">10</option>
+                    <option value="">11</option>
+                    <option value="">12</option>
+                  </select>
+                  <p>월</p>
+                </div>
+              </li>
+
+              <li>
+                <div>
+                  <span>할인율<span class="font-color-red">*</span></span>
+                </div>
+                <div>
+                  <input type="text" class="discount_input" maxlength="3" placeholder="0" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <p>%</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="next_btn_container"><button class="abled_btn_288">계정 등록</button></div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

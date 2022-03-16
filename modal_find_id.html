@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판토스-화주</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+  </head>
+  <body>
+    <!-- 아이디 찾기 모달 -->
+
+    <div class="modal_find_id">
+      <div class="modal_header"><span>아이디 찾기</span><img src="./images/icons/close_icon.svg" alt="close" class="modal_find_id_close" /></div>
+
+      <div class="modal_find_id_text_container">
+        <div class="modal_find_id_text_box1">
+          <span class="modal_find_id_text noto-medium font-size-14">이름<span class="font-color-red">*</span></span>
+        </div>
+        <div class="modal_find_id_input_box">
+          <input class="modal_find_id_name_input" type="text" autofocus />
+        </div>
+      </div>
+
+      <div class="modal_find_id_text_container">
+        <div class="modal_find_id_text_box2">
+          <span class="modal_find_id_text noto-medium font-size-14">연락처<span class="font-color-red">*</span></span>
+        </div>
+
+        <div class="modal_find_id_phonenumber_input_box">
+          <form action="">
+            <div class="modal_find_id_phonenumber_input_block">
+              <select data-display="Select">
+                <option value="SKT" class="noto-demilight font-size-14">SKT</option>
+                <option value="KT" class="noto-demilight font-size-14">KT</option>
+                <option value="LGU+" class="noto-demilight font-size-14">LGU+</option>
+                <option value="알뜰폰SKT" class="noto-demilight font-size-14">알뜰폰SKT</option>
+                <option value="알뜰폰KT" class="noto-demilight font-size-14">알뜰폰KT</option>
+                <option value="알뜰폰LGU+" class="noto-demilight font-size-14">알뜰폰LGU+</option>
+              </select>
+
+              <input class="modal_find_id_input1" type="text" maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <span>-</span>
+              <input class="modal_find_id_input2" type="text" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <span>-</span>
+              <input class="modal_find_id_input3" type="text" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <button class="find_id_phone_number_check_btn disabled_btn_120" disabled>인증</button>
+            </div>
+            <div class="modal_check_input_box">
+              <input class="modal_check_input" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <span class="time modal_check_time noto-regular font-size-14 font-color-blue"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal_find_id_dialog">
+        <p class="modal_find_id_dialog_text noto-demilight font-color-red font-size-14">입력하신 인증번호가 일치하지 않습니다.</p>
+        <button class="modal_find_id_btn disabled_btn_288 noto-regular font-size-16" disabled>확인</button>
+      </div>
+    </div>
+
+    <!-- 아이디 찾기 완료 모달 -->
+
+    <div class="modal_common_complete">
+      <div class="modal_common_complete_block">
+        <p class="modal_common_complete_text noto-regular font-size-16">
+          회원님의 아이디는<br /><span class="font-color-blue">x9055000</span>
+          입니다.
+        </p>
+        <button class="modal_find_id_btn abled_btn_288 noto-regular font-size-16">확인</button>
+      </div>
+    </div>
+  </body>
+</html>

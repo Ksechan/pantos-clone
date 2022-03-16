@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>운송사 회원가입 (2단계)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+  </head>
+  <body>
+    <div id="modal_background"></div>
+    <div class="company_join_container">
+      <img class="pantos_logo" src="./images/pantos_logo.png" alt="" />
+
+      <div class="company_join_progress_container">
+        <div class="progress_bar_red2"></div>
+        <div class="progress_bar_grey2"></div>
+      </div>
+
+      <div class="company_join_text">
+        <span class="noto-medium font-color-black font-size-20">서비스에서 사용할 아이디 및 패스워드를 입력해 주세요.</span>
+      </div>
+      <div class="company_join_form_container">
+        <form id="" action="">
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">아이디</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_id noto-regular font-color-black font-size-14" id="" type="text" placeholder="사용하실 아이디를 입력해주세요." maxlength="20" />
+            <span class="company_join_input_result_id noto-demilight font-color-red font-size-14"></span>
+            <button class="company_join_id_check_button noto-regular font-size-14 default" id="">조회</button>
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">패스워드</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_pwd" type="password" placeholder="6자 이상의 영문과 숫자를 조합해서 입력해주세요." maxlength="20" />
+            <span class="company_join_input_result_pwd noto-demilight font-color-red font-size-14" id=""></span>
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">패스워드 재확인</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_pwd_again" type="password" placeholder="패스워드를 다시 한번 더 입력해주세요." maxlength="20" />
+            <span class="company_join_input_result_pwd_again noto-demilight font-color-red font-size-14"></span>
+          </div>
+          <div class="company_join_button_container">
+            <input class="company_join_next_button font-size-16 default" type="submit" value="다음" disabled />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="./js/common/common.js"></script>
+  <script src="./js/common/commonServerCall.js"></script>
+</html>

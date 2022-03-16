@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+  </head>
+  <body>
+    <div id="modal_background"></div>
+    <div class="company_side_slide_container">
+      <form action="">
+        <div class="company_side_slide_search_container">
+          <select class="select_width_120 list_width_all">
+            <option value="">전체</option>
+            <option value="">기사명</option>
+            <option value="">차량번호</option>
+            <option value="">차량번호</option>
+            <option value="">차량번호</option>
+            <option value="">차량번호</option>
+            <option value="">차량번호</option>
+            <option value="">차량번호</option>
+            <option value="">차량번호</option>
+          </select>
+          <input class="noto-regular font-color-black font-size-14" type="text" placeholder="검색 값을 입력하세요." />
+          <input class="company_search_button noto-regular font-size-14 abled_btn_120" type="submit" value=" 검색" />
+        </div>
+      </form>
+
+      <!--차량 즐겨찾기-->
+      <table id="company_fav_car_datatable">
+        <thead class="noto-medium font-color-black font-size-14">
+          <tr>
+            <th class="fix_column65">상태</th>
+            <th class="fix_column405">정보</th>
+            <th class="fix_column130"></th>
+          </tr>
+        </thead>
+        <tbody class="company_side_slide_car_container">
+          <tr>
+            <td>출근</td>
+            <td>
+              <div class="company_side_slide_car_info">
+                <div><span>소속차량</span></div>
+                <div><span>충북80아2314 | 컨테이너 | 25ft | 담당자 | 000-0000-0000</span></div>
+                <div><span>상행 오더만 받겠습니다.</span></div>
+              </div>
+            </td>
+            <td>
+              <button class="disabled_btn_80">배차</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>출근</td>
+            <td>
+              <div class="company_side_slide_car_info">
+                <div><span>운송사B</span></div>
+                <div><span>충북80아2314 | 컨테이너 | 25ft | 담당자 | 000-0000-0000</span></div>
+                <div><span></span></div>
+              </div>
+            </td>
+            <td>
+              <button class="disabled_btn_80">배차</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>퇴근</td>
+            <td>
+              <div class="company_side_slide_car_info">
+                <div><span>운송사A</span></div>
+                <div><span>충북80아2314 | 컨테이너 | 25ft | 담당자 | 000-0000-0000</span></div>
+                <div><span>내일 오후 2시 업무 시작.</span></div>
+              </div>
+            </td>
+            <td>
+              <button class="disabled_btn_80">배차</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>퇴근</td>
+            <td>
+              <div class="company_side_slide_car_info">
+                <div><span>운송사B</span></div>
+                <div><span>충북80아2314 | 컨테이너 | 25ft | 담당자 | 000-0000-0000</span></div>
+                <div><span>-</span></div>
+              </div>
+            </td>
+            <td>
+              <button class="disabled_btn_80">배차</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>출근</td>
+            <td>
+              <div class="company_side_slide_car_info">
+                <div><span>소속차량</span></div>
+                <div><span>충북80아2314 | 컨테이너 | 25ft | 담당자 | 000-0000-0000</span></div>
+                <div><span>상행 오더만 받겠습니다.</span></div>
+              </div>
+            </td>
+            <td>
+              <button class="disabled_btn_80">배차</button>
+            </td>
+          </tr>
+      
+        </tbody>
+      </table>
+
+
+      <!--운송사 즐겨찾기-->
+      <table id="company_fav_shipper_datatable">
+        <thead class="noto-medium font-color-black font-size-14">
+          <tr>
+            <th class="fix_column160">운송사</th>
+            <th class="fix_column150">담당자</th>
+            <th class="fix_column160">연락처</th>
+            <th class="fix_column130"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>경창종합물류</td>
+            <td>담당자</td>
+            <td>000-0000-0000</td>
+            <td>
+              <button class="disabled_btn_80">배정</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>경창종합물류</td>
+            <td>담당자</td>
+            <td>000-0000-0000</td>
+            <td>
+              <button class="disabled_btn_80">배정</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>경창종합물류</td>
+            <td>담당자</td>
+            <td>000-0000-0000</td>
+            <td>
+              <button class="disabled_btn_80">배정</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>경창종합물류</td>
+            <td>담당자</td>
+            <td>000-0000-0000</td>
+            <td>
+              <button class="disabled_btn_80">배정</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script src="./js/common/common.js"></script>
+  <script src="./js/common/commonServerCall.js"></script>
+</html>

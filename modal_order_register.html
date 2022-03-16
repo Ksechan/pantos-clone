@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판토스-오더등록</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+  </head>
+  <body>
+    <!-- 오더등록 모달 -->
+
+    <form class="modal_order_register">
+      <div class="modal_header"><span>오더 등록</span><img src="./images/icons/close_icon.svg" alt="close" class="modal_header_close" /></div>
+
+      <div class="modal_order_register_content_container">
+        <div class="modal_order_register_content">
+          <ul>
+            <li>
+              <div>
+                <span>주문 구분</span>
+              </div>
+              <div>
+                <select data-displa="Select">
+                  <option value="일반출고" class="noto-demilight font-size-14">일반출고</option>
+                  <option value="긴급출고" class="noto-demilight font-size-14">긴급출고</option>
+                </select>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>도착 요청 일시*</span>
+              </div>
+              <div class="modal_flex">
+                <input type="date" class="order_register_date noto-regular font-size-14 font-color-deep-black" min="1900-01-01" />
+                <select data-displa="Select">
+                  <option value="오전" class="noto-demilight font-size-14">오전</option>
+                  <option value="오후" class="noto-demilight font-size-14">오후</option>
+                </select>
+                <select data-displa="Select" class="select_width_90">
+                  <option value="1시" class="noto-demilight font-size-14">1</option>
+                  <option value="2시" class="noto-demilight font-size-14">2</option>
+                </select>
+                <span>시</span> <input type="text" maxlength="2" class="order_register_time input_width_90" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                <span>분</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>요청 차종 / 톤수*</span>
+              </div>
+              <div class="modal_flex">
+                <select data-displa="Select">
+                  <option value="다마스" class="noto-demilight font-size-14">다마스</option>
+                  <option value="라보" class="noto-demilight font-size-14">라보</option>
+                </select>
+                <select data-displa="Select">
+                  <option value="1t미만" class="noto-demilight font-size-14">1t미만</option>
+                </select>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>상차지 즐겨찾기 / 검색</span>
+              </div>
+              <div>
+                <input type="text" list="loading_fav_list" placeholder="즐겨찾기 선택/상차지 정보 검색" />
+                <datalist id="loading_fav_list">
+                  <option value="" disabled selected>즐겨찾기 선택/상차지 정보 검색</option>
+                  <option value="상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000" class="noto-demilight font-size-14">
+                    상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000
+                  </option>
+                </datalist>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>상차지 명<span class="font-color-red">*</span></span>
+              </div>
+              <div>
+                <input type="text" class="order_register_load_name width_all lift" />
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>상차지 코드<span class="font-color-red">*</span></span>
+              </div>
+              <div>
+                <input type="text" class="order_register_load_place_code width_all" />
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>상차지 주소<span class="font-color-red">*</span></span>
+              </div>
+              <div class="modal_flex">
+                <input type="text" class="width_all" disabled />
+                <button class="abled_btn_120">주소 검색</button>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>상차 방법</span>
+              </div>
+              <div>
+                <select data-displa="Select" class="select_width_120">
+                  <option value="지게차" class="noto-demilight font-size-14">지게차</option>
+                </select>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span><span>포장 수 / 단위</span></span>
+              </div>
+              <div class="modal_flex"><input type="text" class="width_half" /><input type="text" class="width_half" /></div>
+            </li>
+            <li>
+              <div>
+                <span>상차지 담당자 정보</span>
+              </div>
+              <div class="modal_column order_register_column">
+                <ul class="modal_input_phoneNumber">
+                  <li><span>담당자 명</span> <input type="text" /></li>
+                  <li>
+                    <span>담당자 연락처</span>
+                    <input type="text" maxlength="3" class="modal_order_register_loading_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div>-</div>
+                    <input type="text" maxlength="4" class="modal_order_register_loading_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div>-</div>
+                    <input type="text" maxlength="4" class="modal_order_register_loading_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>하차지 즐겨찾기 / 검색</span>
+              </div>
+              <div>
+                <input type="text" list="unloading_fav_list" placeholder="즐겨찾기 선택/하차지 정보 검색" />
+                <datalist id="unloading_fav_list">
+                  <option value="" disabled selected>즐겨찾기 선택/상차지 정보 검색</option>
+                  <option value="상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000" class="noto-demilight font-size-14">
+                    상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000
+                  </option>
+                </datalist>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>하차지 명*</span>
+              </div>
+              <div>
+                <input type="text" class="order_register_unload_name width_all" />
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>하차지 코드*</span>
+              </div>
+              <div>
+                <input type="text" class="order_register_unload_place_code width_all" />
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>하차지 주소*</span>
+              </div>
+              <div class="modal_flex">
+                <select data-displa="Select" class="select_width_120">
+                  <option value="편도" class="noto-demilight font-size-14">편도</option>
+                </select>
+                <input type="text" disabled class="width_flex_1" />
+                <button class="abled_btn_120">주소 검색</button>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>하차 방법</span>
+              </div>
+              <div>
+                <select data-displa="Select">
+                  <option value="지게차" class="noto-demilight font-size-14">지게차</option>
+                </select>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>인수처 담당자 정보*</span>
+              </div>
+              <div class="modal_column">
+                <ul class="modal_input_phoneNumber">
+                  <li><span>담당자 명</span> <input type="text" /></li>
+                  <li>
+                    <span>담당자 연락처</span>
+                    <input type="text" maxlength="3" class="modal_order_register_unloading_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div>-</div>
+                    <input type="text" maxlength="4" class="modal_order_register_unloading_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div>-</div>
+                    <input type="text" maxlength="4" class="modal_order_register_unloading_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>오더 메모</span>
+              </div>
+              <div>
+                <input type="text" class="width_all" />
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>화물정보</span>
+              </div>
+              <div>
+                <input type="text" class="width_all" />
+              </div>
+            </li>
+            <li>
+              <div>
+                <span>특이사항</span>
+              </div>
+              <div>
+                <input type="text" class="width_all" />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="modal_order_register_btn disabled_btn_288" disabled>오더 등록</button>
+    </form>
+  </body>
+</html>

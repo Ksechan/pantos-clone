@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/sample.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+
+    <body>
+      <!-- 모달 오픈 시 배경 -->
+      <div id="modal_background"></div>
+      <!-- 모달 동작 샘플 -->
+
+      <button class="open_modal">모달창 열기</button>
+
+      <form class="modal">
+        <div class="modal_header"><span>샘플모달</span><img src="./images/icons/close_icon.svg" alt="close" class="modal_header_close" /></div>
+
+        <div class="modal_content">
+          <ul>
+            <!-- list 컴포넌트 -->
+            <li>
+              <div>
+                <span>주문 구분</span>
+              </div>
+              <div>
+                <select data-displa="Select" class="select_width_120">
+                  <option value="일반출고" class="noto-demilight font-size-14">일반출고</option>
+                  <option value="긴급출고" class="noto-demilight font-size-14">긴급출고</option>
+                </select>
+              </div>
+            </li>
+
+            <!-- 도착요청일시 -->
+            <!-- 날짜, 시간 컴포넌트 -->
+            <li>
+              <div>
+                <span>도착 요청 일시<span class="font-color-red">*</span></span>
+              </div>
+              <div>
+                <input type="date" class="input_width_160 noto-regular font-size-14 font-color-deep-black margin_right_8" min="1900-01-01" />
+                <select data-displa="Select" class="select_width_120 margin_right_8">
+                  <option value="오전" class="noto-demilight font-size-14">오전</option>
+                  <option value="오후" class="noto-demilight font-size-14">오후</option>
+                </select>
+                <select data-displa="Select" class="select_width_90 margin_right_8">
+                  <option value="1시" class="noto-demilight font-size-14">1</option>
+                  <option value="2시" class="noto-demilight font-size-14">2</option>
+                </select>
+                <span class="margin_right_12">시</span>
+                <input type="text" maxlength="2" class="limit_minute input_width_90 margin_right_8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                <span>분</span>
+              </div>
+            </li>
+
+            <!-- list 2개 컴포넌트 -->
+            <li>
+              <div>
+                <span>요청 차종 / 톤수<span class="font-color-red">*</span></span>
+              </div>
+              <div>
+                <select data-displa="Select" class="select_width_120 margin_right_12">
+                  <option value="다마스" class="noto-demilight font-size-14">다마스</option>
+                  <option value="라보" class="noto-demilight font-size-14">라보</option>
+                </select>
+                <select data-displa="Select" class="select_width_120">
+                  <option value="1t미만" class="noto-demilight font-size-14">1t미만</option>
+                </select>
+              </div>
+            </li>
+
+            <!-- 콤보박스 컴포넌트 (custom 수정 필요) -->
+            <li>
+              <div>
+                <span>상차지 즐겨찾기 / 검색</span>
+              </div>
+              <div>
+                <input type="text" list="loading_fav_list" class="width_all" placeholder="즐겨찾기 선택/상차지 정보 검색" />
+                <datalist id="loading_fav_list">
+                  <option value="" disabled selected>즐겨찾기 선택/상차지 정보 검색</option>
+                  <option value="상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000" class="noto-demilight font-size-14">
+                    상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000
+                  </option>
+                </datalist>
+              </div>
+            </li>
+
+            <!-- text input -->
+            <li>
+              <div>
+                <span>상차지 명<span class="font-color-red">*</span></span>
+              </div>
+              <div>
+                <input type="text" class="width_all lift" />
+              </div>
+            </li>
+
+            <!-- text input -->
+            <li>
+              <div>
+                <span>상차지 코드<span class="font-color-red">*</span></span>
+              </div>
+              <div>
+                <input type="text" class="width_all" />
+              </div>
+            </li>
+
+            <!-- 주소 검색 컴포넌트 -->
+            <li>
+              <div>
+                <span>상차지 주소<span class="font-color-red">*</span></span>
+              </div>
+              <div>
+                <input type="text" class="width_flex_1 margin_right_8" disabled />
+                <button class="abled_btn_120">주소 검색</button>
+              </div>
+            </li>
+
+            <!-- 사업자 번호 컴포넌트 -->
+            <!-- 사업자 번호 작성 완료되면 조회 버튼 활성화 - 조회 버튼 클릭 시 dialog 나오게끔 설정 -->
+            <!-- 사용하실땐 input, button, span 클래스 변경 후 사용하시면 됩니다 sample.js 197 -->
+            <li>
+              <div>
+                <span>사업자번호<span class="font-color-red">*</span></span>
+              </div>
+              <div class="number_input position_relative space_between">
+                <div class="modal_flex">
+                  <input type="text" maxlength="3" class="business_number1 margin_right_8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div class="margin_right_8">-</div>
+                  <input type="text" maxlength="2" class="business_number2 margin_right_8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  <div class="margin_right_8">-</div>
+                  <input type="text" maxlength="6" class="business_number3 margin_right_8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+                <div>
+                  <button class="business_number_btn disabled_btn_120" disabled>조회</button>
+                </div>
+                <span class="abled_business_number modal_btn_dialog font-color-blue">중복 정보 없음</span>
+                <span class="disabled_business_number modal_btn_dialog font-color-red">중복 정보 있음</span>
+              </div>
+            </li>
+
+            <!-- 연락처 input 3개 컴포넌트 -->
+            <!-- 연락처 입력시 자동 포커스 -->
+            <!-- 사용하실 땐 input class 변경 후 사용하시면 됩니다. sample.js 233 -->
+            <li>
+              <div>
+                <span>연락처<span class="font-color-red">*</span></span>
+              </div>
+              <div class="number_input">
+                <input type="text" maxlength="3" class="phone_number1 margin_right_8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                <div class="margin_right_8">-</div>
+                <input type="text" maxlength="4" class="phone_number2 margin_right_8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                <div class="margin_right_8">-</div>
+                <input type="text" maxlength="4" class="phone_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              </div>
+            </li>
+
+            <!-- 포장 수 / 단위 인풋 2개 컴포넌트 -->
+            <li>
+              <div>
+                <span><span>포장 수 / 단위</span></span>
+              </div>
+              <div>
+                <input type="text" class="width_half margin_right_8" />
+                <input type="text" class="width_half" />
+              </div>
+            </li>
+
+            <!-- 상차지 담당자 정보 담당자 명 / 담당자 연락처 컴포넌트 -->
+            <!-- 담당자 연락처 자동 포커스 -->
+            <!-- input class 변경 후 사용하시면 됩니다 sample.js 251 -->
+            <li>
+              <div>
+                <span>상차지 담당자 정보</span>
+              </div>
+              <div class="modal_flex_column">
+                <ul>
+                  <li><span>담당자 명</span> <input type="text" class="width_flex_1" /></li>
+                  <li class="margin_top_12">
+                    <span>담당자 연락처</span>
+                    <input type="text" maxlength="3" class="loading_number1 input_width_90 margin_right_8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div class="margin_right_8">-</div>
+                    <input type="text" maxlength="4" class="loading_number2 input_width_90 margin_right_8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div class="margin_right_8">-</div>
+                    <input type="text" maxlength="4" class="loading_number3 input_width_90" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li>
+              <div>
+                <span>오더 메모</span>
+              </div>
+              <div>
+                <input type="text" class="width_all" />
+              </div>
+            </li>
+
+            <!-- ID 조회 -->
+            <!-- input의 class check_ID_input 변경 후 jquery 선택자만 변경하시어 사용하시면 됩니다 -->
+            <!-- sample.js 48 -->
+            <li>
+              <div>
+                <span>사용자 ID<span class="font-color-red">*</span></span>
+              </div>
+              <div class="position_relative">
+                <input type="text" class="check_ID_input width_flex_1 margin_right_8" />
+                <span class="abled_id modal_input_btn_dialog hidden font-color-blue">사용 가능 계정</span>
+                <span class="disabled_id modal_input_btn_dialog hidden font-color-red">사용 불가 계정</span>
+                <button class="id_check_btn abled_btn_120">조회</button>
+              </div>
+            </li>
+
+            <!-- 사용자 PW & PW 재확인 -->
+            <!-- 사용자 PW 6자리 이상이면 dialog가 나오게 설정 -->
+            <!-- PW재확인이 6자리 이상이고 사용자 PW와 PW 재확인의 값이 같을 시 입력 PW 일치, 다르면 입력 PW 불일치 -->
+            <!-- 사용하실 땐 input의 class와 span의 class 중 첫번째 요소만 변경하셔서 사용하시면 됩니다 -->
+            <!-- sample.js 71 -->
+            <li>
+              <div>
+                <span>사용자 PW<span class="font-color-red">*</span></span>
+              </div>
+              <div class="position_relative">
+                <input type="password" class="customer_PW width_flex_1" />
+                <span class="customer_PW_complete_dialog modal_dialog font-color-blue">입력 조건 일치</span>
+              </div>
+            </li>
+
+            <li>
+              <div>
+                <span>PW 재확인<span class="font-color-red">*</span></span>
+              </div>
+              <div class="position_relative">
+                <input type="password" class="customer_PW_check width_flex_1 position_relative" />
+                <span class="pw_check_dialog modal_dialog font-color-blue">입력 PW 일치</span>
+                <span class="pw_error_dialog modal_dialog font-color-red">입력 PW 불일치</span>
+              </div>
+            </li>
+
+            <!-- 담당자 정보 대표 담당자 및 일반 담당자 컴포넌트 -->
+            <!-- 사용하실땐 그대로 사용하시면 됩니다 -->
+            <li>
+              <div>담당자 정보</div>
+              <div class="modal_in_charge_block no_padding">
+                <ul>
+                  <li>
+                    <div class="representative noto-regular font-size-12">대표 담당자</div>
+                    <p>담당자/010-0000-0000/email@email.com</p>
+                  </li>
+                  <li>
+                    <div class="normal_in_charge noto-regular font-size-12">일반 담당자</div>
+                    <p>담당자/010-0000-0000/email@email.com</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- 라디오 버튼 -->
+            <!-- input의 id값과 label의 for 부분 변경해주시고  -->
+            <!-- input들의 name 변경하셔서 사용하시면 됩니다 -->
+            <li>
+              <div>라디오</div>
+              <div class="radio_btn_box">
+                <input type="radio" id="radio_choise1" name="radio_choise" value="sample1" checked />
+                <label for="radio_choise1"><span></span>선택1</label>
+
+                <input type="radio" id="radio_choise2" name="radio_choise" value="sample2" />
+                <label for="radio_choise2"><span></span>선택2</label>
+              </div>
+            </li>
+
+            <!-- 체크박스 -->
+            <!-- 전체 체크박스 checked 시 체크박스 전체 check -->
+            <!-- 전체 체크박스를 제외한 나머지 체크박스 전체 체크 될 경우 전체 check -->
+            <!-- sample.js 100 -->
+            <li>
+              <div>체크박스</div>
+              <div class="input_check_box">
+                <input type="checkbox" id="sample_check_all" />
+                <label for="sample_check_all"></label>
+                <span class="modal_checkbox_text">체크전체</span>
+
+                <input type="checkbox" id="sample_check_1" />
+                <label for="sample_check_1"></label>
+                <span class="modal_checkbox_text">체크1</span>
+
+                <input type="checkbox" id="sample_check_2" />
+                <label for="sample_check_2"></label>
+                <span class="modal_checkbox_text">체크2</span>
+              </div>
+            </li>
+
+            <!-- 이미지 한개 업로드 -->
+            <!-- 업로드 input 및 label id값 for값 변경하시고 img_single_view_area 와 img_single_area 부분의 class를 js 선택자에 반영해주시면 됩니다 -->
+            <!-- sample.js 127 -->
+
+            <li class="img_upload_block">
+              <div>
+                <span>기사앱 메인 이미지<span class="font-color-red">*</span></span>
+              </div>
+              <div class="img_flex_column">
+                <div>
+                  <input type="file" id="img_single_upload" accept="image/*" onchange="" />
+                  <label class="img_upload noto-regular font-size-14" for="img_single_upload">파일 업로드</label>
+                  <p class="modal_right_text noto-demilight font-size-14 font-color-grey">권장 이미지 사이즈 [메인] 360X210 pixel</p>
+                </div>
+                <div class="img_single_view_area">
+                  <div>
+                    <img src="./images/icons/img_close_icon.svg" alt="" />
+                    <img class="img_single_area" alt="" />
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 이미지 여러개 업로드 -->
+            <!-- 업로드 input 및 label id값 for값 변경하시고 img_multiple_view_area 부분의 class를 js 선택자에 반영해주시면 됩니다 -->
+            <!-- js 160~161 부분의 const closeSrc, const img_radio, const img_radio_label의 id값,for값 변경하시고 사용하시면 됩니다 -->
+            <!-- sample.js 149 -->
+
+            <li class="img_multiple_upload_block">
+              <div>
+                <span>로고</span>
+              </div>
+              <div class="img_flex_column">
+                <label class="img_upload noto-regular font-size-14" for="img_multiple_upload">파일 업로드</label>
+                <input type="file" id="img_multiple_upload" accept="image/*" onchange="" />
+                <div class="img_multiple_view_area"></div>
+              </div>
+            </li>
+
+            <!-- 계정 정지신청 및 탈퇴신청 컴포넌트 -->
+
+            <li>
+              <div>
+                <span>상태</span>
+              </div>
+              <div class="space_between">
+                <span>활동중</span>
+                <div class="modal_flex">
+                  <button class="abled_btn_120_border margin_right_8">정지 신청</button>
+                  <button class="abled_btn_120_border">탈퇴 신청</button>
+                </div>
+              </div>
+            </li>
+
+            <!-- 회원 PW 수정링크전송 -->
+            <li>
+              <div>
+                <span>회원 PW</span>
+              </div>
+              <div class="space_between">
+                <span>********</span>
+                <button class="abled_btn_120">수정 링크 전송</button>
+              </div>
+            </li>
+
+            <!-- 클래스만 바꿔주시면 됩니다 -->
+            <!-- star - 노란 별   star_grey 회색 별 -->
+            <li class="rating">
+              <div>
+                <span>서비스 만족도</span>
+              </div>
+              <div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star_grey"></div>
+                <div class="star_grey"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal_btn_container">
+          <button class="disabled_btn_288" disabled>등록</button>
+        </div>
+      </form>
+
+      <!-- 확인형 모달  -->
+
+      <div class="modal_complete_check">
+        <p class="font-size-16 noto-regular font-color-deep-black">확인형 샘플 모달</p>
+
+        <button class="modal_order_register_complete_btn abled_btn_288">확인</button>
+      </div>
+
+      <!-- 모달 작성중 이탈 시 등록 취소 여부 확인하는 모달 -->
+      <div class="modal_devision font-size-16 noto-regular font-color-deep-black">
+        <p>계정 등록을 취소하시겠습니다? <br />페이지를 나가면 입력 내용은 저장되지 않습니다.</p>
+
+        <div>
+          <button class="modal_order_register_back abled_btn_132_border">취소</button>
+          <button class="modal_order_register_end abled_btn_132">등록 취소</button>
+        </div>
+      </div>
+    </body>
+  </head>
+</html>

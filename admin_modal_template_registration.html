@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>템플릿 등록 모달</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+  </head>
+  <body>
+    <form action="" class="modal_template_registration">
+      <div class="modal_header"><span>템플릿 등록</span><img src="./images/icons/close_icon.svg" alt="close" class="modal_template_registration_close" /></div>
+      <div class="template_registration_content noto-medium font-size-14 font-color-deep-black">
+        <ul>
+          <li class="alarm_type_container">
+            <div>
+              <span>알림유형</span>
+            </div>
+            <div class="alarm_type_container_content">
+              <div>
+                <select class="select_width_120">
+                  <option value="">법인명</option>
+                </select>
+                <select class="select_width_120">
+                  <option value="">법인명</option>
+                </select>
+              </div>
+              <div>
+                <p class="noto-regular font-size-12 font-color-grey">배차 되었을때, 운송정보 목록 및 차량관제 관한 알림이 전송됩니다.</p>
+              </div>
+            </div>
+          </li>
+          <li class="sending_template_type">
+            <div>
+              <span>템플릿 전송 유형</span>
+            </div>
+            <div>
+              <input type="radio" id="sending_template_type_alarm_SMS" name="sending_template_type_radio" checked />
+              <label for="sending_template_type_alarm_SMS"><span></span>알림톡/SMS</label>
+
+              <input type="radio" id="sending_template_type_alarm_email" name="sending_template_type_radio" />
+              <label for="sending_template_type_alarm_email"><span></span>이메일</label>
+            </div>
+          </li>
+          <li class="use_alarm_talk_SMS">
+            <div class="use_alarm_talk_SMS_title">
+              <span>알림톡/SMS 사용 여부</span>
+            </div>
+            <div class="use_alarm_talk_SMS_content">
+              <div>
+                <input type="radio" id="use_alarm_talk_SMS" name="use_alarm_talk_SMS_radio" checked />
+                <label for="use_alarm_talk_SMS"><span></span>선택 사용</label>
+
+                <input type="radio" id="necessary_use_alarm_talk_SMS" name="use_alarm_talk_SMS_radio" />
+                <label for="necessary_use_alarm_talk_SMS"><span></span>필수 사용</label>
+              </div>
+              <div>
+                <p class="noto-regular font-size-12 font-color-grey">해당 알림 유형은 알림톡/SMS 선택 및 필수 사용 가능하며, 선택 유형에 따라 화주/운송사 계정에 추가 과금이 발생합니다.</p>
+              </div>
+            </div>
+          </li>
+          <li class="operation_alarm">
+            <div>
+              <span>운영 관력 알림톡</span>
+            </div>
+            <div>
+              <input type="radio" id="unused_operation_alarm" name="operation_alarm_radio" checked />
+              <label for="unused_operation_alarm"><span></span>미사용</label>
+
+              <input type="radio" id="used_operation_alarm" name="operation_alarm_radio" />
+              <label for="used_operation_alarm"><span></span>사용</label>
+            </div>
+          </li>
+          <li class="alarm_title">
+            <div>
+              <span>알림제목<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="text" />
+            </div>
+          </li>
+          <li class="template">
+            <div>
+              <span>템플릿<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <textarea type="text" disabled></textarea>
+              <div class="template_btn_box">
+                <button class="abled_btn_120">인증번호</button>
+                <button class="abled_btn_120">회원 명</button>
+                <button class="abled_btn_120">오더건수</button>
+                <button class="abled_btn_120">도착요청일시</button>
+                <button class="abled_btn_120">차량번호</button>
+                <button class="abled_btn_120">기사 명</button>
+                <button class="abled_btn_120">상차지 주소</button>
+                <button class="abled_btn_120">하차지 주소</button>
+                <button class="abled_btn_120">배차번호</button>
+                <button class="abled_btn_120">운송사 명</button>
+                <button class="abled_btn_120">화주 명</button>
+                <button class="abled_btn_120">상차 완료 일시</button>
+                <button class="abled_btn_120">기사 연락처</button>
+                <button class="abled_btn_120">제품 건수</button>
+                <button class="abled_btn_120">인수 일시</button>
+                <button class="abled_btn_120">인수자 명</button>
+                <button class="abled_btn_120">사고일자</button>
+                <button class="abled_btn_120">미배차리스트</button>
+              </div>
+            </div>
+          </li>
+          <li class="shipper_drive_container">
+            <section class="shipper">
+              <div>
+                <span>화주</span>
+              </div>
+              <div>
+                <select class="select_width_120">
+                  <option value="">화주</option>
+                </select>
+              </div>
+            </section>
+
+            <section class="company">
+              <div>
+                <span>운송사</span>
+              </div>
+              <div>
+                <select class="select_width_120">
+                  <option value="">운송사</option>
+                </select>
+              </div>
+            </section>
+          </li>
+
+          <li class="drive_take_over_container">
+            <section class="drive">
+              <div>
+                <span>기사</span>
+              </div>
+              <div>
+                <select class="select_width_120">
+                  <option value="">법인명</option>
+                </select>
+              </div>
+            </section>
+            <section class="take_over">
+              <div>
+                <span>인수자</span>
+              </div>
+              <div>
+                <select class="select_width_120">
+                  <option value="">법인명</option>
+                </select>
+              </div>
+            </section>
+          </li>
+        </ul>
+      </div>
+      <div class="template_registration_btn_box">
+        <div class="attention_box">
+          <img src="./images/icons/attention_icon.svg" alt="" />
+          <span class="noto-demilight font-size-14 font-color-black">운영관련 알림톡 사용 여부에 따라 판토스 비용 부담이 발생할 수 있습니다.</span>
+        </div>
+        <button class="disabled_btn_288 template_registration_btn" disabled>등록</button>
+      </div>
+    </form>
+  </body>
+</html>

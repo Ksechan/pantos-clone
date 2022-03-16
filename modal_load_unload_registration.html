@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판토스-이벤트 모달</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+  </head>
+  <body>
+    <!-- 상 하차지 등록 모달 (와이어프레임 - 화주 112) -->
+
+    <form action="" class="modal_load_unload_registration">
+      <div class="modal_header"><span>상·하차지 등록</span><img src="./images/icons/close_icon.svg" alt="close" class="modal_load_unload_registration_close" /></div>
+      <div class="modal_load_unload_content noto-medium font-size-14 font-color-deep-black">
+        <ul>
+          <li>
+            <div>
+              <span>지명<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="text" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <span>코드<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="text" />
+            </div>
+          </li>
+          <li>
+            <div>
+              <span>주소<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="text" class="width_all" disabled />
+              <button class="modal_load_unload_registration_address_btn abled_btn_120">주소 검색</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span>위도</span>
+            </div>
+            <div>
+              <span>-</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span>경도</span>
+            </div>
+            <div>
+              <span>-</span>
+            </div>
+          </li>
+          <li class="modal_load_unload_registration_person_in_charge_block">
+            <div>
+              <span>담당자 정보</span>
+            </div>
+            <div class="input_box_container">
+              <div id="input_box" class="input_box">
+                <ul>
+                  <li>
+                    <input type="radio" name="modal_load_unload_registration_radio" id="modal_load_unload_registration_radio" checked />
+                    <label for="modal_load_unload_registration_radio">
+                      <span></span>
+                      대표 담당자</label
+                    >
+                  </li>
+                  <li>
+                    <p>담당자 명<span class="font-color-red">*</span></p>
+                    <input type="text" />
+                  </li>
+                  <li>
+                    <p>담당자 이메일</p>
+                    <input type="email" />
+                  </li>
+                  <li>
+                    <p>담당자 연락처<span class="font-color-red">*</span></p>
+                    <input type="text" maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div class="input_divide">-</div>
+                    <input type="text" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div class="input_divide">-</div>
+                    <input type="text" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                    <button class="disabled_btn_120_border_grey" disabled>삭제</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="modal_load_unload_registration_plus_person_in_charge_btn_block">
+            <div>
+              <span></span>
+            </div>
+            <div><button class="modal_load_unload_registration_plus_person_in_charge_btn disabled_btn_120">담당자 추가</button></div>
+          </li>
+        </ul>
+      </div>
+      <button class="modal_load_unload_registration_btn disabled_btn_288" disabled>등록</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>운송사 회원가입 (3단계)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+  </head>
+  <body>
+    <div id="modal_background"></div>
+    <div class="company_join_container">
+      <img class="pantos_logo" src="./images/pantos_logo.png" alt="" />
+
+      <div class="company_join_progress_container">
+        <div class="progress_bar_red3"></div>
+        <div class="progress_bar_grey3"></div>
+      </div>
+
+      <div class="company_join_text">
+        <span class="noto-medium font-color-black font-size-20">계정 가입을 위한 정보를 입력해주세요.</span>
+      </div>
+
+      <div class="company_join_form_container">
+        <form id="" action="">
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">법인명</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_corp" id="" type="text" placeholder="법인명을 입력해주세요." />
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">사업자번호</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_business_number_input_1" type="number" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_business_number_input_2" type="number" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_business_number_input_3" type="number" />
+            <button class="company_join_business_number_check noto-regular font-size-14 default" id="">조회</button>
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">사업장 위치</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+
+          <div class="company_join_line_input">
+            <input class="company_join_input_location" id="" type="text" placeholder="사업장 위치를 입력해주세요" disabled />
+            <button class="company_join_search_address noto-regular font-size-14 active">주소 검색</button>
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">대표 연락처</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_phone_number_input_1" type="tel" maxlength="3" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_phone_number_input_2" type="tel" maxlength="4" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_phone_number_input_3" type="tel" maxlength="4" />
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">FAX</span>
+            <span class="noto-medium font-color-black font-size-12">(선택)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_line_fax company_join_fax_number_1" type="tel" maxlength="3" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_line_fax company_join_fax_number_2" type="tel" maxlength="4" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_line_fax company_join_fax_number_3" type="tel" maxlength="4" />
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">대표 이메일</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_email" id="" type="email" placeholder="대표 이메일을 입력해주세요. 예:lxpantos@pantos.com" />
+            <span class="company_join_input_result_email noto-demilight font-color-red font-size-14"></span>
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">대표자 명</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_represent" id="" type="text" placeholder="대표자 명을 입력해주세요." />
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">담당자 명</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_manager" id="" type="text" placeholder="담당자 명을 입력해주세요." />
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">담당자 연락처</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_line_manager_phone company_join_manager_phone_number_1" type="tel" maxlength="3" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_line_manager_phone company_join_manager_phone_number_2" type="tel" maxlength="4" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_line_manager_phone company_join_manager_phone_number_3" type="tel" maxlength="4" />
+          </div>
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">담당자 이메일</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_manager_email" id="" type="email" placeholder="담당자 이메일을 입력해주세요. 예:lxpantos@pantos.com" />
+            <span class="company_join_input_result_manager_email noto-demilight font-color-red font-size-14"></span>
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">정산 담당자 명</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_calculate" id="" type="text" placeholder="담당자 명을 입력해주세요." />
+          </div>
+
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">정산 담당자 연락처</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_line_calculate_phone company_join_calculate_phone_number_1" type="tel" maxlength="3" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_line_calculate_phone company_join_calculate_phone_number_2" type="tel" maxlength="4" />
+            <span class="company_join_line_dash">-</span>
+            <input class="company_join_line_calculate_phone company_join_calculate_phone_number_3" type="tel" maxlength="4" />
+          </div>
+          <div class="company_join_line_text">
+            <span class="noto-medium font-color-black font-size-14">정산 담당자 이메일</span>
+            <span class="noto-medium font-color-red font-size-12">(필수)</span>
+          </div>
+          <div class="company_join_line_input">
+            <input class="company_join_input_calculate_email" id="" type="email" placeholder="정산 담당자 이메일을 입력해주세요. 예:lxpantos@pantos.com" />
+            <span class="company_join_input_result_calculate_email noto-demilight font-color-red font-size-14"></span>
+          </div>
+
+          <div class="company_join_button_container">
+            <input class="company_join_next_button font-size-16 default" type="submit" value="다음" disabled/>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="./js/common/common.js"></script>
+  <script src="./js/common/commonServerCall.js"></script>
+</html>

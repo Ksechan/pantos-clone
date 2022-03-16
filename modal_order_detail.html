@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판토스-오더 상세</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+  </head>
+  <body>
+    <!-- 오더 상세 모달 -->
+
+    <form class="modal_order_detail">
+      <div class="modal_header"><span>오더 상세</span> <img src="./images/icons/close_icon.svg" alt="close" class="modal_order_detail_header_close" /></div>
+      <div class="tabs_area">
+        <ul class="tabs noto-medium font-size-14">
+          <li class="on"><a href="#!">주문 정보</a></li>
+          <li><a href="#!">제품 정보</a></li>
+          <li><a href="#!">배차 정보</a></li>
+          <li><a href="#!">인수 정보</a></li>
+          <li><a href="#!">사고 정보</a></li>
+        </ul>
+        <div class="tab_box on">
+          <div class="order_info_tab">
+            <div class="modal_order_detail_content_container">
+              <div class="modal_order_detail_content">
+                <ul>
+                  <li>
+                    <div>
+                      <span>주문 구분</span>
+                    </div>
+                    <div>
+                      <select data-displa="Select">
+                        <option value="일반출고" class="noto-demilight font-size-14">일반출고</option>
+                        <option value="긴급출고" class="noto-demilight font-size-14">긴급출고</option>
+                      </select>
+                    </div>
+                  </li>
+
+                  <li class="modal_align_item_center">
+                    <div>
+                      <span>오더번호</span>
+                    </div>
+                    <div>
+                      <span> 00000000 </span>
+                    </div>
+                  </li>
+
+                  <li class="modal_align_item_center">
+                    <div>
+                      <span>오더일자</span>
+                    </div>
+                    <div>
+                      <span> 00000000 </span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>도착 요청 일시</span>
+                    </div>
+
+                    <div class="modal_flex">
+                      <input type="date" class="order_detail_arrive_date select_width_160 noto-regular font-size-14 font-color-deep-black" min="1900-01-01" />
+                      <select data-displa="Select" class="select_width_120">
+                        <option value="오전" class="noto-demilight font-size-14">오전</option>
+                        <option value="오후" class="noto-demilight font-size-14">오후</option>
+                      </select>
+                      <select data-displa="Select" class="select_width_90">
+                        <option value="1시" class="noto-demilight font-size-14">1</option>
+                        <option value="2시" class="noto-demilight font-size-14">2</option>
+                      </select>
+                      <span>시</span>
+                      <input type="text" maxlength="2" class="order_detail_arrive_time input_width_90" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                      <span>분</span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>요청 차종 / 톤수</span>
+                    </div>
+                    <div class="modal_flex">
+                      <select data-displa="Select" class="select_width_120">
+                        <option value="카고" class="noto-demilight font-size-14">카고</option>
+                      </select>
+                      <select data-displa="Select" class="select_width_120">
+                        <option value="1t" class="noto-demilight font-size-14">1t</option>
+                      </select>
+                    </div>
+                  </li>
+
+                  <li class="modal_align_item_center">
+                    <div>
+                      <span>오더 회원 ID</span>
+                    </div>
+                    <div>
+                      <span>관리자 A</span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>담당자 정보</span>
+                    </div>
+
+                    <div class="modal_column modal_order_info_tab_no_padding">
+                      <div class="modal_order_info_tab_manager">
+                        <div class="order_info_tab_manager_box_blue noto-regular">대표 담당자</div>
+                        <div>담당자 / 000-0000-0000</div>
+                      </div>
+                      <div class="modal_order_info_tab_manager">
+                        <div class="order_info_tab_manager_box_grey noto-regular">일반 담당자</div>
+                        <div>담당자 / 000-0000-0000</div>
+                      </div>
+                      <div class="modal_order_info_tab_manager">
+                        <div class="order_info_tab_manager_box_grey noto-regular">일반 담당자</div>
+                        <div>담당자 / 000-0000-0000</div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>상차지 즐겨찾기 / 검색</span>
+                    </div>
+                    <div>
+                      <input type="text" list="order_detail_fav_loading_list" placeholder="즐겨찾기 선택/상차지 정보 검색" />
+                      <datalist id="order_detail_fav_loading_list" class="width_all list_width_all">
+                        <option value="" disabled selected>즐겨찾기 선택/상차지 정보 검색</option>
+                        <option value="상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000" class="noto-demilight font-size-14">
+                          상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000
+                        </option>
+                      </datalist>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>상차지 명<span class="font-color-red">*</span></span>
+                    </div>
+                    <div>
+                      <input type="text" class="order_detail_load_name" />
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>상차지 코드<span class="font-color-red">*</span></span>
+                    </div>
+                    <div>
+                      <input type="text" class="order_detail_load_place_code" />
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>상차지 주소<span class="font-color-red">*</span></span>
+                    </div>
+                    <div class="modal_flex">
+                      <input type="text" class="width_all" disabled />
+                      <button class="abled_btn_120">주소 검색</button>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>상차지 담당자 정보</span>
+                    </div>
+                    <div class="modal_column">
+                      <ul class="modal_input_phoneNumber">
+                        <li><span>담당자 명</span> <input type="text" /></li>
+                        <li>
+                          <span>담당자 연락처</span>
+                          <input type="text" maxlength="3" class="modal_order_detail_loading_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                          <div>-</div>
+                          <input type="text" maxlength="4" class="modal_order_detail_loading_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                          <div>-</div>
+                          <input type="text" maxlength="4" class="modal_order_detail_loading_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>상차 방법<span class="font-color-red">*</span></span>
+                    </div>
+                    <div>
+                      <select data-displa="Select" class="select_width_120">
+                        <option value="카고" class="noto-demilight font-size-14">카고</option>
+                      </select>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>포장 수 / 단위</span>
+                    </div>
+
+                    <div class="modal_flex"><input type="text" class="width_half" /><input type="text" class="width_half" /></div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>상차 완료 일시</span>
+                    </div>
+                    <div>-</div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>하차지 즐겨찾기 / 검색</span>
+                    </div>
+                    <div>
+                      <input type="text" list="order_detail_fav_unloading_list" placeholder="즐겨찾기 선택/하차지 정보 검색" />
+                      <datalist id="order_detail_fav_unloading_list" class="width_all list_width_all">
+                        <option value="" disabled selected>즐겨찾기 선택/상차지 정보 검색</option>
+                        <option value="상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000" class="noto-demilight font-size-14">
+                          상차지A (000000)/경상남도 창원시 의창구 창이대로532번길 6/담당자/000-0000-0000
+                        </option>
+                      </datalist>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>하차지 명<span class="font-color-red">*</span></span>
+                    </div>
+                    <div>
+                      <input type="text" class="order_detail_unload_name" />
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>하차지 코드<span class="font-color-red">*</span></span>
+                    </div>
+                    <div>
+                      <input type="text" class="order_detail_unload_place_code" />
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>하차지 주소<span class="font-color-red">*</span></span>
+                    </div>
+                    <div class="modal_flex">
+                      <select data-displa="Select" class="select_width_120">
+                        <option value="지게차" class="noto-demilight font-size-14">지게차</option>
+                      </select>
+                      <input type="text" disabled />
+                      <button class="abled_btn_120">주소 검색</button>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>인수처 담당자 정보<span class="font-color-red">*</span></span>
+                    </div>
+                    <div class="modal_column">
+                      <ul class="modal_input_phoneNumber">
+                        <li><span>담당자 명</span> <input type="text" /></li>
+                        <li>
+                          <span>담당자 연락처</span>
+                          <input type="text" maxlength="3" class="modal_order_detail_take_over_number1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                          <div>-</div>
+                          <input type="text" maxlength="4" class="modal_order_detail_take_over_number2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                          <div>-</div>
+                          <input type="text" maxlength="4" class="modal_order_detail_take_over_number3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>하차 방법</span>
+                    </div>
+                    <div>
+                      <select data-displa="Select" class="select_width_120">
+                        <option value="지게차" class="noto-demilight font-size-14">지게차</option>
+                      </select>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>하차 완료 일시</span>
+                    </div>
+                    <div>
+                      <span>-</span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>화물정보</span>
+                    </div>
+                    <div>
+                      <input type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>특이사항</span>
+                    </div>
+                    <div>
+                      <input type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+                    <div>
+                      <span>기타 메모</span>
+                    </div>
+                    <div>
+                      <input type="text" />
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab_box">
+          <div class="product_info">
+            <div class="product_info_content">
+              <table id="modal_order_detail_product_info_table" class="">
+                <thead>
+                  <tr>
+                    <th>오더번호</th>
+                    <th>오더상태</th>
+                    <th>오더번호</th>
+                    <th>오더상태</th>
+                    <th>오더번호</th>
+                    <th>오더상태</th>
+                    <th>오더번호</th>
+                    <th>오더상태</th>
+                    <th>오더번호</th>
+                    <th>오더상태</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>오더등록</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                  </tr>
+                  <tr>
+                    <td>오더등록</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                    <td>운송대기</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="tab_box">
+          <div class="dispatch_info">
+            <div class="modal_dispatch_content">
+              <ul>
+                <li>
+                  <div>
+                    <span>배차번호</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>운송사</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>기사 명</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>기사 연락처</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>차량번호</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>차종 / 톤수</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>차량옵션</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>적재함 길이 / 높이</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>사고 이력</span>
+                  </div>
+                  <div class="accident_history_container">
+                    <div class="accident_history">
+                      <span>1</span>
+                      <button class="accident_history_visible_btn abled_btn_120">이력 보기</button>
+                    </div>
+                    <table id="modal_order_detail_accident_history_table" class="modal_order_detail_accident_history_table_style">
+                      <thead>
+                        <tr>
+                          <th>사고 발생일</th>
+                          <th>유형</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>2021-11-24</td>
+                          <td>사고유형</td>
+                        </tr>
+                        <tr>
+                          <td>2021-11-24</td>
+                          <td>사고유형</td>
+                        </tr>
+                        <tr>
+                          <td>2021-11-24</td>
+                          <td>사고유형</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>배차 이력</span>
+                  </div>
+                  <div class="dispatch_history_container">
+                    <div class="dispatch_history">
+                      <span>5</span>
+                      <button class="dispatch_history_visible_btn abled_btn_120">이력 보기</button>
+                    </div>
+                    <p class="noto-medium font-color-deep-black font-size-14 modal_order_detail_dispatch_history_table_title">최근 3개월 배차 이력</p>
+                    <table id="modal_order_detail_dispatch_history_table" class="modal_order_detail_dispatch_history_table_style">
+                      <thead>
+                        <tr>
+                          <th>운송일</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>2021-11-24</td>
+                        </tr>
+                        <tr>
+                          <td>2021-11-24</td>
+                        </tr>
+                        <tr>
+                          <td>2021-11-24</td>
+                        </tr>
+                        <tr>
+                          <td>2021-11-24</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab_box">
+          <div class="take_over_tab">
+            <div class="modal_take_over_content">
+              <ul>
+                <li>
+                  <div>
+                    <span>오더상태</span>
+                  </div>
+                  <div>
+                    <span>운송사 접수</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>운송상태</span>
+                  </div>
+                  <div>
+                    <span>운송대기</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>인수상태</span>
+                  </div>
+                  <div>
+                    <span>인수전</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>인수시간</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>인수처 위치</span>
+                  </div>
+                  <div>
+                    <span>-</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>인수자 서명</span>
+                  </div>
+                  <div class="sign_box_container">
+                    <div class="sign_box"></div>
+                    <div class="sign_box"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab_box">
+          <div class="accident_info_tab">
+            <div class="modal_accident_info_content">
+              <ul>
+                <li>
+                  <div>
+                    <span>사고 형태</span>
+                  </div>
+                  <div>
+                    <span>사고등록</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>사고 등록자</span>
+                  </div>
+                  <div>
+                    <span>기사앱아이디</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>사고 유형</span>
+                  </div>
+                  <div>
+                    <span>단순사고(피해없음)</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>사고 발생 시간</span>
+                  </div>
+                  <div>
+                    <span>2021-11-21 08:21</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>사고 발생 위치</span>
+                  </div>
+                  <div>
+                    <span>경상남도 창원시 의창구 창이대로532번길 6</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>사고 상세 위치</span>
+                  </div>
+                  <div>
+                    <span>실길분기점 부근</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>사고 상세 위치</span>
+                  </div>
+                  <div>
+                    <span>사고 관련 메모 내용</span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span>증빙 사진</span>
+                  </div>
+                  <div class="accident_info_proof_image_container">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="order_detail_btn_block">
+        <button class="abled_btn_132_border">인수 알림 전송</buttonc=>
+        <button class="modal_order_detail_cancel abled_btn_132_border">오더 취소</button>
+        <button class="modal_order_detail_order_btn disabled_btn_288">오더 등록</button>
+      </div>
+    </form>
+  </body>
+</html>

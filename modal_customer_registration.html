@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고객사 등록</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+
+    <body>
+      <form class="modal height_auto min_height_424">
+        <div class="modal_header"><span>고객사 등록</span><img src="./images/icons/close_icon.svg" alt="close" class="modal_header_close" /></div>
+        <div class="modal_content height_auto customer_registration">
+          <ul>
+            <li>
+              <div>
+                <span>고객사 명<span class="font-color-red">*</span></span>
+              </div>
+              <div>
+                <input type="text" class="customer_registration_input width_flex_1" />
+              </div>
+            </li>
+
+            <li>
+              <div>
+                <span>고객사 URL</span>
+              </div>
+              <div>
+                <input type="text" class="width_flex_1" />
+              </div>
+            </li>
+
+            <!-- 이미지 업로드 한개 -->
+            <!-- 한개만 업로드 가능하며 X버튼(close) 클릭시 삭제 -->
+            <!-- common.js 2834~2854 -->
+            <li>
+              <div>
+                <span>고객사 로고 이미지<span class="font-color-red">*</span></span>
+              </div>
+              <div class="img_flex_column">
+                <label class="img_upload noto-regular font-size-14" for="customer_registration_img_upload">파일 업로드</label>
+                <input type="file" id="customer_registration_img_upload" accept="image/*" onchange="" />
+                <div class="customer_registration_img_view_area">
+                  <div>
+                    <img src="./images/icons/img_close_icon.svg" alt="" />
+                    <img class="customer_registration_img_area" src="" alt="" />
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div>
+                <span>노출 여부</span>
+              </div>
+              <div>
+                <input type="radio" name="API_radio" id="API_radio1" value="unused" checked />
+                <label for="API_radio1" class="margin_rigth_34">
+                  <span></span>
+                  비노출
+                </label>
+                <input type="radio" name="API_radio" id="API_radio2" value="used" />
+                <label for="API_radio2">
+                  <span></span>
+                  노출
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- 버튼활성화는 필수요소 input 에 한글자라도 있으며 이미지가 존재할 경우 활성화 -->
+        <!-- common.js 2870, 2859 -->
+        <div class="modal_btn_container">
+          <button class="customer_registration_btn disabled_btn_288" disabled>등록</button>
+        </div>
+      </form>
+    </body>
+  </head>
+</html>

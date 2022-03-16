@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판토스-인수 내역 전송 모달</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+  </head>
+  <body>
+    <!-- 인수 내역 전송 모달 - 전자인수증 관리_오더관리_오더상세_인수내역전송(SMS) -->
+
+    <form action="" class="modal_sending_acquisition_history">
+      <div class="modal_header">
+        <span>인수 내역 전송</span><span class="modal_sending_acquisition_history_header_close"><img src="./images/icons/close_icon.svg" alt="close" class="modal_close" /></span>
+      </div>
+      <div class="modal_sending_acquisition_history_content">
+        <ul>
+          <li>
+            <div>
+              <span>전송 방식</span>
+            </div>
+            <div>
+              <input type="radio" id="modal_sending_acquisition_history_SMS" name="sending_choice" value="SMS" checked />
+              <label for="modal_sending_acquisition_history_SMS"><span></span>SMS</label>
+
+              <input type="radio" id="modal_sending_acquisition_history_email" name="sending_choice" value="email" />
+              <label for="modal_sending_acquisition_history_email"><span></span>이메일</label>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span>인수자 연락처</span>
+            </div>
+            <div class="sending_SMS_block">
+              <input type="text" maxlength="3" class="modal_sending_acquisition_history_phoneNumber1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <div>-</div>
+              <input type="text" maxlength="4" class="modal_sending_acquisition_history_phoneNumber2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <div>-</div>
+              <input type="text" maxlength="4" class="modal_sending_acquisition_history_phoneNumber3" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+            </div>
+            <div class="sending_email_block"><input type="text" /></div>
+          </li>
+        </ul>
+      </div>
+      <button class="sending_acquisition_history_btn disabled_btn_288">전자인수증 전송</button>
+    </form>
+  </body>
+</html>

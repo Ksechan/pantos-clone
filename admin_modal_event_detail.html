@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 등록 모달</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="./css/select2.min.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/select2.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+
+    <script>
+      //"use strict"
+    </script>
+
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/commonServerCall.js"></script>
+  </head>
+  <body>
+    <form action="" class="modal_event_detail">
+      <div class="modal_header"><span>이벤트 등록</span><img src="./images/icons/close_icon.svg" alt="close" class="modal_event_detail_close" /></div>
+      <div class="modal_event_detail_content font-size-14 font-color-deep-black">
+        <ul>
+          <li class="event_type">
+            <div>
+              <span>컨텐츠 노출방식</span>
+            </div>
+            <div>
+              <input type="radio" id="event_type_HTML" name="event_type_radio" value="HTML" checked />
+              <label for="event_type_HTML" class="font-color-black"><span></span>HTML</label>
+
+              <input type="radio" id="event_type_URL" name="event_type_radio" value="URL" />
+              <label for="event_type_URL" class="font-color-black"><span></span>URL</label>
+            </div>
+          </li>
+
+          <li class="event_title">
+            <div>
+              <span>제목<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="text" class="event_title_input" />
+            </div>
+          </li>
+
+          <li class="event_content">
+            <div>
+              <span>내용<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <div class="html_box">HTML</div>
+            </div>
+          </li>
+
+          <li class="event_url">
+            <div>
+              <span>팝업 URL<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="text" class="event_url_input" />
+            </div>
+          </li>
+
+          <li class="event_group">
+            <div>
+              <span>노출 그룹<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="checkbox" id="event_modal_check_all" />
+              <label for="event_modal_check_all"></label>
+              <span class="modal_checkbox_text noto-regular font-size-14 font-color-black">전체</span>
+
+              <input type="checkbox" id="event_modal_check_shipper" />
+              <label for="event_modal_check_shipper"></label>
+              <span class="modal_checkbox_text noto-regular font-size-14 font-color-black">화주</span>
+
+              <input type="checkbox" id="event_modal_check_company" />
+              <label for="event_modal_check_company"></label>
+              <span class="modal_checkbox_text noto-regular font-size-14 font-color-black">운송사</span>
+
+              <input type="checkbox" id="event_modal_check_driver" />
+              <label for="event_modal_check_driver"></label>
+              <span class="modal_checkbox_text noto-regular font-size-14 font-color-black">기사</span>
+            </div>
+          </li>
+
+          <li class="event_driver_app_location">
+            <div>
+              <span>기사앱 노출 위치<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="checkbox" id="event_modal_driver_app_location_check_all" />
+              <label for="event_modal_driver_app_location_check_all"></label>
+              <span class="modal_checkbox_text noto-regular font-size-14 font-color-black">전체</span>
+
+              <input type="checkbox" id="event_modal_driver_app_location_check_main" />
+              <label for="event_modal_driver_app_location_check_main"></label>
+              <span class="modal_checkbox_text noto-regular font-size-14 font-color-black">메인</span>
+
+              <input type="checkbox" id="event_modal_driver_app_location_check_bottom" />
+              <label for="event_modal_driver_app_location_check_bottom"></label>
+              <span class="modal_checkbox_text noto-regular font-size-14 font-color-black">하단</span>
+            </div>
+          </li>
+
+          <li class="event_use_display">
+            <div>
+              <span>노출 여부</span>
+            </div>
+            <div>
+              <input type="radio" id="unused_display" name="event_use_display_radio" value="unused_display" checked />
+              <label for="unused_display" class="font-color-black"><span></span>비노출</label>
+
+              <input type="radio" id="used_display" name="event_use_display_radio" value="used_display" />
+              <label for="used_display" class="font-color-black"><span></span>노출</label>
+            </div>
+          </li>
+
+          <li class="event_pop_up">
+            <div>
+              <span>팝업방식</span>
+            </div>
+            <div>
+              <input type="radio" id="event_pop_up_window" name="event_pop_up_radio" value="window" checked />
+              <label for="event_pop_up_window" class="font-color-black"><span></span>윈도우</label>
+
+              <input type="radio" id="event_pop_up_layer" name="event_pop_up_radio" value="layer" />
+              <label for="event_pop_up_layer" class="font-color-black"><span></span>레이어</label>
+            </div>
+          </li>
+
+          <li class="event_driver_app_main_img">
+            <div>
+              <span>기사앱 메인 이미지<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <div>
+                <input type="file" id="driver_app_main_img_upload" accept="image/*" onchange="" />
+                <label class="img_upload noto-regular font-size-14" for="driver_app_main_img_upload">파일 업로드</label>
+                <p class="noto-demilight font-size-14 font-color-grey">권장 이미지 사이즈 [메인] 360X210 pixel</p>
+              </div>
+              <div id="driver_app_main_img_view_area">
+                <img id="driver_app_main_img_area" src="" alt="" />
+              </div>
+            </div>
+          </li>
+
+          <li class="event_driver_app_bottom_img">
+            <div>
+              <span>기사앱 하단 이미지<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <div>
+                <input type="file" id="driver_app_bottom_img_upload" accept="image/*" onchange="" />
+                <label class="img_upload noto-regular font-size-14" for="driver_app_bottom_img_upload">파일 업로드</label>
+                <p class="noto-demilight font-size-14 font-color-grey">권장 이미지 사이즈 [하단] 360X144 pixel</p>
+              </div>
+              <div id="driver_app_bottom_img_view_area">
+                <img id="driver_app_bottom_img_area" src="" alt="" />
+              </div>
+            </div>
+          </li>
+
+          <li class="event_start_date">
+            <div>
+              <span>노출 시작일<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="date" class="modal_event_start_date select_width_160 noto-regular font-size-14 font-color-deep-black" min="1900-01-01" />
+              <select data-displa="Select" class="select_width_120">
+                <option value="오전" class="noto-demilight font-size-14">오전</option>
+                <option value="오후" class="noto-demilight font-size-14">오후</option>
+              </select>
+              <select data-displa="Select" class="select_width_90">
+                <option value="1시" class="noto-demilight font-size-14">1</option>
+                <option value="2시" class="noto-demilight font-size-14">2</option>
+              </select>
+              <span>시</span>
+              <input type="text" maxlength="2" class="modal_event_start_time input_width_90" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <span>분</span>
+            </div>
+          </li>
+
+          <li class="event_end_date">
+            <div>
+              <span>노출 종료일<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <input type="date" class="modal_event_end_date select_width_160 noto-regular font-size-14 font-color-deep-black" min="1900-01-01" />
+              <select data-displa="Select" class="select_width_120">
+                <option value="오전" class="noto-demilight font-size-14">오전</option>
+                <option value="오후" class="noto-demilight font-size-14">오후</option>
+              </select>
+              <select data-displa="Select" class="select_width_90">
+                <option value="1시" class="noto-demilight font-size-14">1</option>
+                <option value="2시" class="noto-demilight font-size-14">2</option>
+              </select>
+              <span>시</span>
+              <input type="text" maxlength="2" class="modal_event_end_time input_width_90" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <span>분</span>
+            </div>
+          </li>
+          <li class="event_location_container">
+            <div>
+              <span>노출 위치<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <span>좌측</span>
+              <input type="text" class="event_location_input_left" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <span>상단</span>
+              <input type="text" class="event_location_input_top" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+            </div>
+          </li>
+          <li class="event_modal_width_height">
+            <div>
+              <span>팝업 넓이/높이<span class="font-color-red">*</span></span>
+            </div>
+            <div>
+              <span>넓이</span>
+              <input type="text" class="event_modal_width_input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <span>높이</span>
+              <input type="text" class="event_modal_height_input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal_event_detail_btn_container">
+        <button class="abled_btn_132_border">삭제</button>
+        <button class="disabled_btn_288 modal_event_detail_btn" disabled>저장</button>
+      </div>
+    </form>
+  </body>
+</html>

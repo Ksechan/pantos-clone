@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>화주 템플릿 관리_기본 인수증 템플릿 관리</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+  </head>
+  <body>
+    <div id="modal_background"></div>
+    <div class="shipper_receipt_template_container">
+        <div class="shipper_receipt_template_sub_container">
+            <section class="shipper_receipt_template_input_container">
+                <input class="shipper_receipt_template_input_text" type="text" />
+                
+                <input type="radio" id="shipper_receipt_template_radio_button" name="represent_check" value="" />
+                <label class="noto-regular font-color-black font-size-14" for="shipper_receipt_template_radio_button"><span></span>대표 템플릿 설정</label>
+                
+                <button class="abled_btn_132_border">삭제</button>
+                <button class="abled_btn_132">저장</button>
+            </section>
+            <section class="shipper_receipt_template_img_container">
+                <div src="" alt="">
+            </section>
+        </div>
+        <section class="shipper_receipt_template_selector_container">
+            <div class="shipper_receipt_template_selector_header">
+                <span class="noto-medium font-color-black font-size-14">로고/인장</span>
+            </div>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 1</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <div class="shipper_receipt_template_selector_header">
+                <span class="noto-medium font-color-black font-size-14">공급자</span>
+            </div>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 1</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <hr class="shipper_receipt_template_hr">
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 2</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <div class="shipper_receipt_template_selector_header">
+                <span class="noto-medium font-color-black font-size-14">인도처</span>
+            </div>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 1</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <hr>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 2</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <div class="shipper_receipt_template_selector_header">
+                <span class="noto-medium font-color-black font-size-14">제품정보</span>
+            </div>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 1</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <hr>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 2</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <hr>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 3</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <hr>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 4</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <hr>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 5</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>
+            <hr>
+            <div class="shipper_receipt_template_selector_row">
+                <span class="noto-regular font-color-black font-size-14">항목 6</span>
+                <select class="select_width_160">
+                    <option value="">인수증 주문 정보</option>
+                </select>
+                <select class="select_width_160">
+                    <option value="">상차 담당자 연락처</option>
+                </select>
+            </div>      
+        </section>
+      </div>
+    </div>
+  </body>
+  <script src="./js/common/common.js"></script>
+  <script src="./js/common/commonServerCall.js"></script>
+</html>

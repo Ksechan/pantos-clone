@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48.002" height="56.001" viewBox="0 0 48.002 56.001">
+  <g id="그룹_5507" data-name="그룹 5507" transform="translate(-969.998 -328)">
+    <path id="합치기_1" data-name="합치기 1" d="M22244.666-2670H22230a4.006,4.006,0,0,1-4-4v-40a4,4,0,0,1,4-4h40a4,4,0,0,1,4,4v40a4,4,0,0,1-4,4h-14.664l-5.332,8Z" transform="translate(-21256 3046)" fill="#43a047"/>
+    <g id="그룹_5354" data-name="그룹 5354" transform="translate(21086.537 -4074)">
+      <path id="패스_4537" data-name="패스 4537" d="M275.123,156.8h20a1.556,1.556,0,0,1,1,1v13c0,.323-.682,0-1,0h-2a4.167,4.167,0,0,0-8,0h-10v-13C275.123,157.478,274.8,156.8,275.123,156.8Z" transform="translate(-20372.66 4260.2)" fill="#fff" fill-rule="evenodd"/>
+      <path id="패스_4538" data-name="패스 4538" d="M160.41,183.176h4v4h-7c.422-.859,1.47-1.12,2-2a21.154,21.154,0,0,1,1-2C160.726,182.841,160.434,183.176,160.41,183.176Z" transform="translate(-20263.947 4235.825)" fill="#fff" fill-rule="evenodd"/>
+      <path id="패스_4539" data-name="패스 4539" d="M125.994,269.126h9v4c-.662-.515-1.1-1-2-1-2.089.087-3.685,1.015-4,3h-3c-.054,0,0,.05,0,0v-6C125.994,269.076,125.94,269.126,125.994,269.126Z" transform="translate(-20234.531 4155.875)" fill="#fff" fill-rule="evenodd"/>
+      <ellipse id="타원_76" data-name="타원 76" cx="2" cy="2.5" rx="2" ry="2.5" transform="translate(-20085.537 4430.001)" fill="#fff"/>
+      <circle id="타원_77" data-name="타원 77" cx="2.5" cy="2.5" r="2.5" transform="translate(-20104.537 4430.001)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

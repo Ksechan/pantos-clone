@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어드민 채권 현황</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fontawesome.css" />
+    <!-- all.css -->
+
+    <link rel="stylesheet" type="text/css" href="./css/nice-select.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.dataTables.css" />
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="./js/jquery/jquery.dataTables.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/jquery/nice-select/jquery.js"></script> -->
+    <script type="text/javascript" src="./js/jquery/nice-select/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/fastclick.js"></script>
+    <script type="text/javascript" src="./js/jquery/nice-select/prism.js"></script>
+		<!-- 채권 현황 페이지입니다. 채권 현황 페이지는 어드민, 화주, 운송사 모두 쓰입니다 -->
+		<!-- 이 페이지는 어드민 기준으로 만들어졌습니다 -->
+		<!-- 화주, 운송사에서는 구분 칩이 없고 테이블이 하나입니다. -->
+		<!-- 테이블 높이가 달라지므로 js에서 해당 테이블의 scrollY값을 조절하시면 됩니다 -->
+		<!-- css, js 에서 '채권 현황'으로 검색하시면 해당 코드를 보실 수 있습니다. -->
+</head>
+<body>
+	<div id="modal_background"></div>
+    <div class="header">
+      <div class="home_logo">
+        <a href="home.html"><image src="./images/header_logo.png" /></a>
+      </div>
+      <div class="header_menu_container">
+        <ul>
+          <li class="header_menu1 header_menu_style">
+            <a href="#" class="noto-medium font-size-16 font-color-grey">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="header_menu_icon">
+                <g id="그룹_4900" data-name="그룹 4900" transform="translate(-580 -48)">
+                  <g id="그룹_2949" data-name="그룹 2949">
+                    <rect id="사각형_4490" data-name="사각형 4490" width="24" height="24" transform="translate(580 48)" fill="none" />
+                  </g>
+                  <g id="Layer_17" data-name="Layer 17" transform="translate(581 49.535)">
+                    <path
+                      id="패스_3306"
+                      data-name="패스 3306"
+                      d="M11.218,19.609a1.778,1.778,0,0,1-.82-.2L8.028,18.169a.592.592,0,0,0-.612,0l-.667.408a1.774,1.774,0,0,1-1.814.007A1.924,1.924,0,0,1,4,16.965V3.911A1.875,1.875,0,0,1,5.837,2H16.856a1.875,1.875,0,0,1,1.837,1.911V12.83a.613.613,0,1,1-1.224,0V3.911a.625.625,0,0,0-.612-.637H5.837a.625.625,0,0,0-.612.637V16.965a.642.642,0,0,0,.312.548.592.592,0,0,0,.612,0l.667-.414a1.774,1.774,0,0,1,1.757-.064l2.369,1.23a.593.593,0,0,0,.655-.07l1.769-1.459a1.779,1.779,0,0,1,2.167-.083l.979.688a.592.592,0,0,0,.633.033.642.642,0,0,0,.322-.568v-.79a.613.613,0,1,1,1.224,0v.822a1.923,1.923,0,0,1-.974,1.69,1.776,1.776,0,0,1-1.891-.1l-.973-.688a.593.593,0,0,0-.722,0L12.362,19.2A1.791,1.791,0,0,1,11.218,19.609Z"
+                      transform="translate(0 0)"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="0.2"
+                    />
+                    <rect id="사각형_4499" data-name="사각형 4499" width="1.855" height="1.855" rx="0.927" transform="translate(6.291 7.436)" fill="currentColor" />
+                    <path
+                      id="패스_3307"
+                      data-name="패스 3307"
+                      d="M18.734,12.224H12.612a.612.612,0,1,1,0-1.224h6.122a.612.612,0,1,1,0,1.224Z"
+                      transform="translate(-2.945 -3.249)"
+                      fill="currentColor"
+                    />
+                    <path id="패스_3308" data-name="패스 3308" d="M18.734,17.224h-8.9a.612.612,0,0,1,0-1.224h8.9a.612.612,0,1,1,0,1.224Z" transform="translate(-2.945 -5.054)" fill="currentColor" />
+                  </g>
+                </g></svg
+              ><span>전자인수증 관리</span></a
+            >
+            <ul class="noto-medium font-size-14">
+              <li><a href="#" class="font-color-grey">오더관리</a></li>
+              <li><a href="#" class="font-color-grey">차량관제</a></li>
+              <li><a href="#" class="font-color-grey">사고관리</a></li>
+              <li><a href="#" class="font-color-grey">상·하차지 관리</a></li>
+              <li><a href="#" class="font-color-grey">즐겨찾기 관리</a></li>
+            </ul>
+          </li>
+          <li class="header_menu2 header_menu_style">
+            <a href="#" class="noto-medium font-size-16 font-color-grey">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="header_menu_icon">
+                <g id="그룹_4901" data-name="그룹 4901" transform="translate(-580 -151)">
+                  <rect id="사각형_4492" data-name="사각형 4492" width="24" height="24" transform="translate(580 151)" fill="none" />
+                  <g id="document11" transform="translate(585.2 155)">
+                    <g id="그룹_2936" data-name="그룹 2936" transform="translate(0)">
+                      <line
+                        id="선_4"
+                        data-name="선 4"
+                        x1="3.96"
+                        y1="3.96"
+                        transform="translate(9.641)"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-miterlimit="10"
+                        stroke-width="1.5"
+                      />
+                      <path
+                        id="패스_3302"
+                        data-name="패스 3302"
+                        d="M16.64,17.075H3.039v-16H12.68l3.96,3.96Z"
+                        transform="translate(-3.039 -1.075)"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-miterlimit="10"
+                        stroke-width="1.5"
+                      />
+                    </g>
+                    <path
+                      id="패스_3303"
+                      data-name="패스 3303"
+                      d="M22.624,23.76a.649.649,0,0,1-.649.649H19.064a.649.649,0,0,1-.649-.649V20.568a.649.649,0,0,1,.649-.649Z"
+                      transform="translate(-9.024 -19.919)"
+                      fill="currentColor"
+                    />
+                  </g>
+                </g></svg
+              ><span>템플릿 관리</span></a
+            >
+          </li>
+
+          <li class="header_menu3 header_menu_style">
+            <a href="#" class="noto-medium font-size-16 font-color-grey">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="header_menu_icon">
+                <g id="그룹_2942" data-name="그룹 2942" transform="translate(-456 -151)">
+                  <rect id="사각형_4494" data-name="사각형 4494" width="24" height="24" transform="translate(456 151)" fill="none" />
+                  <g id="그룹_2935" data-name="그룹 2935" transform="translate(-201.25 -136.229)">
+                    <circle id="타원_74" data-name="타원 74" cx="8" cy="8" r="8" transform="translate(661.25 291.229)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5" />
+                    <path
+                      id="패스_3301"
+                      data-name="패스 3301"
+                      d="M15.377,11.664h-.849c.2-.644.318-1.04.349-1.159l.009-.049a.568.568,0,0,0-.392-.53.7.7,0,0,0-.169-.032.563.563,0,0,0-.547.423L12.693,13.8h-.009q-.031-.031-.77-2.446L11.546,10.2a.559.559,0,0,0-1,0L10.18,11.35q-.739,2.415-.77,2.446H9.4L8.316,10.318A.564.564,0,0,0,7.768,9.9a.7.7,0,0,0-.169.032.568.568,0,0,0-.392.53l.009.049c.03.119.15.516.349,1.159H6.733a.485.485,0,0,0,0,.97H7.867c.242.775.549,1.755.924,2.946q.137.694.618.694a.613.613,0,0,0,.476-.263q.094-.217,1.148-3.648h.027q1.054,3.43,1.148,3.648a.612.612,0,0,0,.476.263q.479,0,.619-.694c.375-1.192.682-2.171.924-2.946h1.15a.485.485,0,0,0,0-.97Z"
+                      transform="translate(658.004 286.931)"
+                      fill="currentColor"
+                    />
+                  </g>
+                </g></svg
+              ><span>사용료·정산 관리</span></a
+            >
+            <ul class="noto-medium font-size-14">
+              <li><a href="#" class="font-color-grey">사용량 조회</a></li>
+              <li><a href="#" class="font-color-grey">월별 정산 보고서</a></li>
+              <li><a href="#" class="font-color-grey">정산리포트</a></li>
+            </ul>
+          </li>
+          <li class="header_menu4 header_menu_style">
+            <a href="#" class="noto-medium font-size-16 font-color-grey">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="header_menu_icon">
+                <g id="그룹_19534" data-name="그룹 19534" transform="translate(-1117 -105)">
+                  <rect id="사각형_4492" data-name="사각형 4492" width="24" height="24" transform="translate(1117 105)" fill="none" />
+                  <rect
+                    id="사각형_13217"
+                    data-name="사각형 13217"
+                    width="13.6"
+                    height="16"
+                    transform="translate(1122.5 109)"
+                    fill="#fff"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  />
+                  <g id="그룹_19580" data-name="그룹 19580" transform="translate(619.563 11)">
+                    <path
+                      id="패스_16551"
+                      data-name="패스 16551"
+                      d="M16.642,12.224h-4.22c-.233,0-.422-.274-.422-.612s.189-.612.422-.612h4.22c.233,0,.422.274.422.612S16.875,12.224,16.642,12.224Z"
+                      transform="translate(492.736 90.79)"
+                      fill="currentColor"
+                    />
+                    <path
+                      id="패스_16550"
+                      data-name="패스 16550"
+                      d="M18.614,17.224H9.823a.612.612,0,0,1,0-1.224h8.791a.612.612,0,0,1,0,1.224Z"
+                      transform="translate(495.518 88.928)"
+                      fill="currentColor"
+                    />
+                    <path
+                      id="패스_16552"
+                      data-name="패스 16552"
+                      d="M18.614,17.224H9.823a.612.612,0,0,1,0-1.224h8.791a.612.612,0,0,1,0,1.224Z"
+                      transform="translate(495.518 92.066)"
+                      fill="currentColor"
+                    />
+                  </g>
+                </g></svg
+              ><span>보고서</span></a
+            >
+          </li>
+          <li class="header_menu4 header_menu_style">
+            <a href="#" class="noto-medium font-size-16 font-color-grey">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="header_menu_icon">
+                <g id="그룹_2948" data-name="그룹 2948" transform="translate(-24 -388)">
+                  <rect id="사각형_4488" data-name="사각형 4488" width="24" height="24" transform="translate(24 388)" fill="none" />
+                  <g id="management03" transform="translate(23.97 389.041)">
+                    <circle
+                      id="타원_73"
+                      data-name="타원 73"
+                      cx="2.868"
+                      cy="2.868"
+                      r="2.868"
+                      transform="translate(7.832 3.413)"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      id="패스_3298"
+                      data-name="패스 3298"
+                      d="M3.475,22.237A7.224,7.224,0,0,1,10.7,15.012"
+                      transform="translate(0 -3.152)"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    />
+                    <g id="그룹_2934" data-name="그룹 2934" transform="translate(12.221 11.596)">
+                      <path
+                        id="패스_3299"
+                        data-name="패스 3299"
+                        d="M21.967,17.85a3.329,3.329,0,0,0-.087-.749l.927-.535-.928-1.607-.9.519a3.34,3.34,0,0,0-1.374-.823V13.587H17.748v1.042a3.339,3.339,0,0,0-1.4.778l-.929-.537-.929,1.608.9.52a3.266,3.266,0,0,0-.026,1.6l-.927.535.929,1.608.9-.519a3.343,3.343,0,0,0,1.374.823v1.069H19.5V21.07a3.332,3.332,0,0,0,1.4-.778l.929.537.928-1.607-.9-.521A3.283,3.283,0,0,0,21.967,17.85Zm-3.341,1.406a1.406,1.406,0,1,1,1.406-1.407A1.406,1.406,0,0,1,18.626,19.256Z"
+                        transform="translate(-14.443 -13.587)"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <span>소속 계정 관리</span></a
+            >
+          </li>
+          <li class="header_menu5 header_menu_style">
+            <a href="#" class="noto-medium font-size-16 font-color-grey">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="header_menu_icon">
+                <g id="그룹_4903" data-name="그룹 4903" transform="translate(-580 -151)">
+                  <rect id="사각형_4492" data-name="사각형 4492" width="24" height="24" transform="translate(580 151)" fill="none" />
+                  <g id="warning04" transform="translate(582.777 153.777)">
+                    <path
+                      id="패스_3304"
+                      data-name="패스 3304"
+                      d="M17.223,9.223a7.979,7.979,0,1,1-.431-2.6A8,8,0,0,1,17.223,9.223Z"
+                      transform="translate(0)"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-miterlimit="10"
+                      stroke-width="1.5"
+                    />
+                    <g id="그룹_2946" data-name="그룹 2946" transform="translate(8.346 5.212)">
+                      <path
+                        id="패스_3305"
+                        data-name="패스 3305"
+                        d="M12.757,8.576a.878.878,0,0,1,.877-.877h0a.878.878,0,0,1,.877.877v3.738a.877.877,0,0,1-.877.877h0a.878.878,0,0,1-.877-.877Z"
+                        transform="translate(-12.757 -7.699)"
+                        fill="currentColor"
+                      />
+                      <circle id="타원_75" data-name="타원 75" cx="0.877" cy="0.877" r="0.877" transform="translate(0 6.268)" fill="currentColor" />
+                    </g>
+                  </g>
+                </g></svg
+              ><span>공지사항 및 기타</span></a
+            >
+            <ul class="noto-medium font-size-14">
+              <li><a href="#" class="font-color-grey">공지사항</a></li>
+              <li><a href="#" class="font-color-grey">이벤트</a></li>
+              <li><a href="#" class="font-color-grey">FAQ</a></li>
+              <li><a href="#" class="font-color-grey">Q&A</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="header_menu_right">
+          <li>
+            <a href="#" class="noto-medium font-size-16 font-color-grey">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="header_menu_icon">
+                <g id="그룹_2938" data-name="그룹 2938" transform="translate(-332 -48)">
+                  <rect id="사각형_4486" data-name="사각형 4486" width="24" height="24" transform="translate(332 48)" fill="none" />
+                  <g id="member01" transform="translate(332.581 49.041)">
+                    <circle
+                      id="타원_72"
+                      data-name="타원 72"
+                      cx="2.845"
+                      cy="2.845"
+                      r="2.845"
+                      transform="translate(8.574 3.413)"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      id="패스_3295"
+                      data-name="패스 3295"
+                      d="M4.252,22.179a7.167,7.167,0,0,1,14.333,0"
+                      transform="translate(0 -3.22)"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    />
+                  </g>
+                </g></svg
+              ><span>My Page</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="noto-medium font-size-16 font-color-grey">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="header_menu_icon">
+                <g id="그룹_5385" data-name="그룹 5385" transform="translate(-1698 -124)">
+                  <rect id="사각형_6216" data-name="사각형 6216" width="24" height="24" transform="translate(1698 124)" fill="#fff" />
+                  <path
+                    id="패스_4583"
+                    data-name="패스 4583"
+                    d="M247.09,179.4a.86.86,0,0,0-.909.8v1.4a.861.861,0,0,1-.909.8h-4.545a.861.861,0,0,1-.909-.8V170.4a.861.861,0,0,1,.909-.8h4.545a.861.861,0,0,1,.909.8v1.4a.916.916,0,0,0,1.818,0v-1.4a2.582,2.582,0,0,0-2.727-2.4h-4.545A2.582,2.582,0,0,0,238,170.4v11.2a2.582,2.582,0,0,0,2.727,2.4h4.545A2.582,2.582,0,0,0,248,181.6v-1.4A.86.86,0,0,0,247.09,179.4Z"
+                    transform="translate(1464.5 -39.999)"
+                    fill="currentColor"
+                  />
+                  <path
+                    id="패스_4584"
+                    data-name="패스 4584"
+                    d="M293.662,228.037c.008-.011.017-.02.024-.031l0,0c.011-.017.017-.035.026-.052a.677.677,0,0,0,.035-.069.705.705,0,0,0,.022-.073c.006-.021.013-.04.017-.062a.752.752,0,0,0,0-.281v0c0-.021-.012-.04-.017-.06s-.012-.049-.021-.072v0c-.01-.024-.023-.045-.034-.068s-.017-.037-.029-.055a.715.715,0,0,0-.086-.11l-2.75-2.883a.665.665,0,0,0-.972,0,.745.745,0,0,0,0,1.019l1.577,1.653h-7.965a.721.721,0,0,0,0,1.441h7.965l-1.576,1.652a.745.745,0,0,0,0,1.019.665.665,0,0,0,.972,0l2.748-2.881,0,0a.685.685,0,0,0,.059-.076Z"
+                    transform="translate(1425.197 -91.604)"
+                    fill="currentColor"
+                  />
+                </g>
+              </svg>
+              <span>Log Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+	<div class="admin_bond_container">
+		<div class="noto-bold font-color-deep-black font-size-22">채권 현황</div>
+		
+		<!-- 구분칩은 어드민에만 존재합니다. 화주, 운송사에서는 삭제해주세요. -->
+		<section class="margin_vertical_24">
+			<button class="value_bond_corporate chip_selector_160 chip_active margin_right_8">법인</button>
+			<button class="value_bond_location chip_selector_160 chip_default">사업장</button>
+		</section>
+		
+		<section class="admin_bond_search_container">
+			<div class="admin_bond_search_sub_container">
+				<select data-display="Select" class="select_width_120 margin_right_8">
+					<option value="" class="noto-demilight font-size-14">전체</option>
+					<option value="" class="noto-demilight font-size-14">운송사명</option>
+				</select>
+								
+				<input class="input_width_320 margin_right_8" type="text" placeholder="검색어를 입력해주세요." />
+
+				<p class="margin_right_12 noto-regular font-size-14 font-color-deep-black">수금상태</p>
+				<select data-display="Select" class="select_width_120 margin_right_8">
+					<option value="" class="noto-demilight font-size-14">전체</option>
+					<option value="" class="noto-demilight font-size-14">수금완료</option>
+				</select>
+				<p class="margin_right_12 noto-regular font-size-14 font-color-deep-black">기간조회</p>
+				<select data-display="Select" class="select_width_90 margin_right_8">
+					<option value="" class="noto-demilight font-size-14">2022</option>
+					<option value="" class="noto-demilight font-size-14">2023</option>
+				</select>
+				<p class="margin_right_12 noto-regular font-size-14 font-color-deep-black">년</p>
+				<select data-display="Select" class="select_width_90 margin_right_8">
+					<option value="" class="noto-demilight font-size-14">1</option>
+					<option value="" class="noto-demilight font-size-14">2</option>
+				</select>
+				<p class="text_margin_2 noto-regular font-size-14 font-color-deep-black margin_right_8">월</p>
+				<p class="text_margin_2 noto-regular font-size-14 font-color-deep-black margin_right_8">~</p>
+				<select data-display="Select" class="select_width_90 margin_right_8">
+					<option value="" class="noto-demilight font-size-14">2022</option>
+					<option value="" class="noto-demilight font-size-14">2023</option>
+				</select>
+				<p class="text_margin_1 noto-regular font-size-14 font-color-deep-black margin_right_12">년</p>
+				<select data-display="Select" class="select_width_90 margin_right_8">
+					<option value="" class="noto-demilight font-size-14">1</option>
+					<option value="" class="noto-demilight font-size-14">2</option>
+				</select>
+				<p class="text_margin_1 noto-regular font-size-14 font-color-deep-black margin_right_8">월</p>
+
+				<button class="abled_btn_120_search margin_right_8" class="noto-regular font-size-14 font-color-deep-black">검색</button>
+
+				<div class="admin_bond_excel_container">
+					<button class="excel_btn"><img src="./images/icons/excel_icon.svg" alt="" /></button>
+				</div>
+			</div>
+			
+			<!-- 화주, 운송사 구분에 따른 브래드크럼블-->
+			<div class="admin_bond_breadcrumbs">
+					<span class="noto-demilight font-color-grey font-size-14">사용료·정산 관리 ></span>
+					<span class="admin_bond_breadcrumbs_text noto-demilight font-color-red font-size-14">채권 현황_법인</span>
+			</div>
+		</section>
+
+		<section class="admin_bond_info_container">
+			<div class="admin_bond_info margin_right_8">
+				<span class="noto-medium font-color-grey font-size-14 margin_right_16">총 오더 건수</span>
+				<span class="admin_bond_amount">1,500,000</span>
+				<span class="noto-medium font-color-grey font-size-14 margin_left_4">건</span>
+			</div>
+			<div class="admin_bond_info margin_right_8">
+				<span class="noto-medium font-color-grey font-size-14 margin_right_16">총 청구 금액</span>
+				<span class="admin_bond_amount">3,400,000</span>
+				<span class="noto-medium font-color-grey font-size-14 margin_left_4">건</span>
+			</div>
+			<div class="admin_bond_info margin_right_8">
+				<span class="noto-medium font-color-grey font-size-14 margin_right_16">총 입금 금액</span>
+				<span class="admin_bond_amount">3,400,000</span>
+				<span class="noto-medium font-color-grey font-size-14 margin_left_4">건</span>
+			</div>
+			<div class="admin_bond_info">
+				<span  class="noto-medium font-color-grey font-size-14 margin_right_16">총 미수금</span>
+				<span class="admin_bond_amount">1,200,000</span>
+				<span class="noto-medium font-color-grey font-size-14 margin_left_4">건</span>
+			</div>
+		</section>
+		<section class="admin_bond_table_container margin_top_40">
+			<div class="admin_bond_corporate_datatable_container display">
+				<table id="admin_bond_corporate_datatable">
+					<thead>
+						<tr>
+							<th class="fix_column80">번호</th>
+							<th class="fix_column160">구분</th>
+							<th class="fix_column160">수금상태</th>
+							<th class="fix_column240">법인</th>
+							<th class="fix_column160">사업자번호</th>
+							<th class="fix_column160">총 오더 건수</th>
+							<th class="fix_column160">총 청구 금액</th>
+							<th class="fix_column160">계산서 발행일</th>
+							<th class="fix_column160">Inv No.</th>
+							<th class="fix_column240">정산 대상기간</th>
+							<th class="fix_column160">입금일</th>
+							<th class="fix_column160">입금액</th>
+							<th class="fix_column160">미수금</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>01</td>
+							<td>화주</td>
+							<td>수금완료</td>
+							<td>업체 명</td>
+							<td>000-00-00000</td>
+							<td>5,000</td>
+							<td>1,000,000</td>
+							<td>2022-01-31</td>
+							<td>001</td>
+							<td>2022-01-01 ~ 2022-01-31</td>
+							<td>
+								<input class="input_width_120 noto-regular font-size-14" type="date">
+							</td>
+							<td>
+								<input class="admin_bond_number_input input_width_120" type="text" value="1097400"/>
+							</td>
+							<td>-</td>
+						</tr>
+						
+					
+					</tbody>
+				</table>
+			</div>
+			<div class="admin_bond_location_datatable_container hidden">
+				<table id="admin_bond_location_datatable">
+					<thead>
+						<tr>
+							<th class="fix_column80">번호</th>
+							<th class="fix_column250">법인 명</th>
+							<th class="fix_column250">사업자번호</th>
+							<th class="fix_column250">MDM코드</th>
+							<th class="fix_column250">총 오더 건수</th>
+							<th class="fix_column250">총 청구 금액</th>
+							<th class="fix_column250">입금액</th>
+							<th class="fix_column268">미수금</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>01</td>
+							<td>법인 A</td>
+							<td>000-00-00000</td>
+							<td>code</td>
+							<td>5,000</td>
+							<td>1,000,000</td>
+							<td>900,000</td>
+							<td>100,000</td>
+						</tr>
+					</tbody>
+				</table>
+				<table id="admin_bond_location_sub_datatable" class="margin_top_16">
+					<thead>
+						<tr>
+							<th class="fix_column80">채권번호</th>
+							<th class="fix_column160">수금상태</th>
+							<th class="fix_column240">사업장</th>
+							<th class="fix_column160">총 오더 건수</th>
+							<th class="fix_column160">총 청구 금액</th>
+							<th class="fix_column160">계산서 발행일</th>
+							<th class="fix_column160">Inv No.</th>
+							<th class="fix_column240">정산 대상기간</th>
+							<th class="fix_column164">입금일</th>
+							<th class="fix_column164">입급액</th>
+							<th class="fix_column160">미수금</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<section class="margin_top_32">
+				<button class="admin_bond_save_btn disabled_btn_288 margin_auto">저장</button>
+		</section>
+	</div>
+</body>
+<script src="./js/common/common.js"></script> 
+<script src="./js/common/commonServerCall.js"></script>
+</html>
